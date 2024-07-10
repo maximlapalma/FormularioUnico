@@ -1,0 +1,59 @@
+ /* Estilo para el formulario */
+ #print-form {
+     display: block;
+     /* Por defecto visible */
+ }
+
+ /* Estilo para el texto Acerca de */
+ #about-text {
+     display: none;
+     /* Por defecto oculto */
+ }
+
+ /* Estilos específicos para impresión */
+
+ @media print {
+     body * {
+         visibility: hidden;
+
+         
+     }
+
+     @page {
+        size: A4; /* Tamaño de la página */
+        margin: 10mm; /* Márgenes para toda la página */
+    }
+
+     #form,
+     #form * {
+         visibility: visible;
+     }
+
+     #form {
+         position: absolute;
+         left: 0;
+         top: 0;
+         width: 210mm;
+         height: 297mm;
+         border: none;
+         margin-top: 0.5rem;
+
+     }
+
+
+     input::placeholder {
+         color: transparent;
+     }
+
+     textarea::placeholder {
+         color: transparent;
+     }
+
+     input[type="date"]::-webkit-datetime-edit-month-field,
+     input[type="date"]::-webkit-datetime-edit-day-field,
+     input[type="date"]::-webkit-datetime-edit-year-field {
+         color: inherit;
+         /* Restaurar el color del texto para el usuario */
+     }
+
+ }

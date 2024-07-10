@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/1b4e48dfed.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Beiruti:wght@200..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+    
+    <script src="script.js"></script>
+    <title>Formulario único</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-toggle" onclick="toggleMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a id="inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a id="imprimir"><i class="fa-solid fa-print"></i> Imprimir</a></li>
+                <li><a id="guardar"><i class="fa-solid fa-floppy-disk"></i> Guardar datos</a></li>
+                <li><a id="limpiar"><i class="fa-solid fa-trash-can"></i> Limpiar</a></li>
+                <li><a id="acerca"><i class="fa-solid fa-circle-info"></i> Acerca de...</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <main>
+        <form class="container printable" id="form">
+            <!--PRIMERA PARTE DEL FU-->
+            <section class="primera">
+                <div class="columna-1">
+                    <fieldset>
+                        <section class="tituloFormulario">
+                            <div class="imgForm"><img src="img/es_er.svg"></div>
+                            <div class="tituloForm">
+                                <h1>Formulario Unificado FU-01</h1>
+                                <p>Consejo General de Educación</p>
+                                <P>Gobierno de Entre Ríos</p>
+                            </div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Rubro 1: Carátula del trámite</legend>
+                        <section class="caratulaTramite">
+                            <div class="caratulaFila1">
+                                <div class="textTipoTram"><label for="tipoTramite">TRÁMITE:</label>
+                                </div>
+                                <div class="tipoTramSelec">
+                                    <input type="text" id="tipoTramite" name="tipoTramite" list="itemLic"
+                                        placeholder="Licencia tipo X" pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+"
+                                        title="Por favor, ingresá el tipo de trámite" inputmode="text" autofocus required>
+                                    <datalist id="itemLic">
+                                        <!-- Trámites Docentes -->
+                                        <option value="Licencia tipo A">
+                                        <option value="Licencia tipo B">
+                                        <option value="Licencia tipo C">
+                                        <option value="Designar Docente por Concurso">
+                                        <option value="Designar Docente por Listado de Orden de Mérito">
+                                        <option value="Otorgar Baja o Cese">
+                                        <option value="Otorgar Permuta a Personal Docente">
+                                        <option value="Otorgar Traslado Jurisdiccional a Personal Docente">
+                                        <option value="Otorgar Tareas Pasivas a Personal Docente">
+                                            <!-- Trámites NO Docentes -->
+                                        <option
+                                            value="Designar Personal NO Docente suplente en Establecimientos Educativos">
+                                        <option value="Licencias tipo D">
+                                        <option value="Licencias tipo E">
+                                        <option value="Licencias tipo F">
+                                        <option value="Licencias tipo G">
+                                        <option value="Licencias tipo H">
+                                    </datalist>
+                                </div>
+                            </div>
+
+                            <div class="caratulaFila2">
+                                <div class="textNumTram"><label for="tipo">N° DEL TRÁMITE:</label>
+                                </div>
+                                <div class="tipoTram">
+                                    <input type="text" id="tipo" name="tipo" list="itemTipo" placeholder="DP"
+                                        pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+"
+                                        title="Por favor, ingresá la abreviatura del tipo de trámite"  inputmode="text" required>
+                                    <datalist id="itemTipo">
+                                        <option value="DC">
+                                        <option value="DL">
+                                        <option value="BJ">
+                                        <option value="LA">
+                                        <option value="LB">
+                                        <option value="LC">
+                                        <option value="PE">
+                                        <option value="TJ">
+                                        <option value="TP">
+                                        <option value="DS">
+                                        <option value="LD">
+                                        <option value="LE">
+                                        <option value="LF">
+                                        <option value="LG">
+                                        <option value="LH">
+                                    </datalist>
+                                </div>
+                                <div class="dto">
+                                    <input type="text" name="dtoTipoTram" id="dto" list="itemDto" placeholder="22"
+                                    pattern="[0-9]{2}" inputmode="numeric" title="Por favor, ingresá exactamente dos números" required>
+                                    <datalist id="itemDto">
+                                        <option value="01">
+                                        <option value="02">
+                                        <option value="03">
+                                        <option value="04">
+                                        <option value="05">
+                                        <option value="06">
+                                        <option value="07">
+                                        <option value="08">
+                                        <option value="09">
+                                        <option value="10">
+                                        <option value="11">
+                                        <option value="12">
+                                        <option value="13">
+                                        <option value="14">
+                                        <option value="15">
+                                        <option value="16">
+                                        <option value="17">
+                                        <option value="18">
+                                    </datalist>
+                                </div>
+                                <div class="cueTram"><input type="text" id="cueTipTram" name="cueTipTram"
+                                        minlength="4" maxlength="7" placeholder="1234" pattern="[0-9]{4}" inputmode="numeric"
+                                        title="Por favor, ingresá exactamente cuatro números" required></div>
+                                <div class="numTram"><input type="text" id="numero" name="numero" minlength="4"
+                                        maxlength="6" inputmode="numeric"></div>
+                                <div class="anioTram"><input type="text" id="anio" name="anio" minlength="4" inputmode="numeric"
+                                        maxlength="4" placeholder="2020" title="Por favor, ingresá el año del trámite"
+                                        required></div>
+                            </div>
+
+                            <div class="caratulaFila3">
+                                <div class="sinText">
+                                    <p></p>
+                                </div>
+                                <div class="tipoTex"><label for="tipo">TIPO</label></div>
+                                <div class="textDto"><label for="dto">DTO:</label></div>
+                                <div class="textCue"><label for="cueTipTram">CUE:</label></div>
+                                <div class="texNumTram"><label for="numero">N°:</label></div>
+                                <div class="textAnioTram"><label for="anio">AÑO:</label></div>
+                            </div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Rubro 2: Datos del solicitante</legend>
+                        <section class="datosSolicitante">
+                            <div class="textApellidoDatos"><label for="apellidos">APELLIDOS:</label>
+                            </div>
+                            <div class="apellidosDatos"><input type="text" id="apellidos" placeholder="Pérez"
+                                    pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+"  inputmode="text" required>
+                            </div>
+                            <div class="textNombreDatos"><label for="nombres">NOMBRES:</label></div>
+                            <div class="nombresDatos"><input type="text" id="nombres" placeholder="Juan"
+                                    pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+"  inputmode="text" required></div>
+                            <div class="textDniDatos"><label for="numeroDocumento">N° DOC.:</label>
+                            </div>
+                            <div class="dniDatos"><input type="text" id="numeroDocumento" placeholder="22.333.444" inputmode="numeric"
+                                    pattern="[0-9]+" required></div>
+                            <div class="textTipoDoc"><label>TIPO DOC.:</label></div>
+                            <div class="tipoDoc">
+                                <label for="dni">DNI</label>
+                                <input type="radio" id="dni" name="tipoDoc" value="dni">
+                                <label for="le">LE</label>
+                                <input type="radio" id="le" name="tipoDoc" value="le">
+                                <label for="lc">LC</label>
+                                <input type="radio" id="lc" name="tipoDoc" value="lc">
+                            </div>
+                            <div class="textSexDatos"> <label>SEXO:</label></div>
+                            <div class="sexoDatos"> <label for="sexo_masculino">MASCULINO</label>
+                                <input type="radio" id="sexo_masculino" name="sexo" value="masculino">
+                                <label for="sexo_femenino">FEMENINO</label>
+                                <input type="radio" id="sexo_femenino" name="sexo" value="femenino">
+                            </div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Rubro 3: Datos del establecimiento iniciador</legend>
+                        <section class="establecimientoIniciador">
+                            <div class="textEscuelaIni"><label for="nombreEstablecimientoInic">NOMBRE y
+                                    NÚMERO:</label></div>
+                            <div class="escuelaInic"><input type="text" id="nombreEstablecimientoInic"
+                                    name="nombreEstablecimientoInic"  inputmode="text" placeholder="Escuela Secundaria N° 1 Pedro Páramo">
+                            </div>
+                            <div class="textCueInic"><label for="cueEstablecimientoInic">CUE:</label></div>
+                            <div class="cueInici"><input type="text" id="cueEstablecimientoInic" inputmode="numeric"
+                                    name="cueEstablecimientoInic" placeholder="300-1234"></div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Rubro 4: Datos del trámite</legend>
+                        <section class="datosTramite">
+                            <div class="textFechaInic"><label for="fechaInicio">FECHA DE INICIO:</label></div>
+                            <div class="fechaInicio"><input type="date" id="fechaInicio"></div>
+                            <div class="texFechaFin"><label for="fechaFinalizacion">FECHA DE FINALIZACIÓN:</label></div>
+                            <div class="fechaFinalizacion"><input type="date" id="fechaFinalizacion"></div>
+                        </section>
+                    </fieldset>
+                </div>
+
+                <div class="columna-2">
+                    <fieldset>
+                        <legend>Rubro 4.1: Designaciones</legend>
+                        <section class="designaciones">
+                            <div class="textFechaPose"><label for="fechaTomaPosesion">FECHA DE TOMA DE POSESIÓN:</label>
+                            </div>
+                            <div class="fechaPosesion"><input type="date" id="fechaTomaPosesion"></div>
+                            <div class="textNombreAgtReem"><label for="apellidoNombreAgenteReemplazado">APELLIDO Y
+                                    NOMBRE AGT. REEMPLAZADO:</label></div>
+                            <div class="agtReemplazado"><input type="text" id="apellidoNombreAgenteReemplazado" inputmode="text"></div>
+                            <div class="textDocReem"><label for="numeroDocumentoReemplazado">N° DOCUMENTO:</label></div>
+                            <div class="docAgtReemplazado"><input type="text" id="numeroDocumentoReemplazado"  inputmode="numeric"></div>
+                            <div class="textCompletarDesig">
+                                <P>COMPLETAR SOLO PARA DESIGNACIONES POR CONCURSO</P>
+                            </div>
+                            <div class="puntajeDesig">
+                                <label for="numActaAdj">N° ACTA ADJ.:</label>
+                                <input type="text" id="numActaAdj">
+                                <label for="puntajeAdj">PUNTAJE:</label>
+                                <input type="text" id="puntajeAdj">
+                            </div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Rubro 4.2: Licencias</legend>
+                        <section class="licencias">
+                            <div class="textRem"><label for="licRemunerada">REMUNERADA (SÍ/NO):</label></div>
+                            <div class="remuLic">
+                                <input type="text" id="licRemunerada" name="licRemunerada" list="itemRem"
+                                    placeholder="SÍ" pattern="^(SÍ|NO)$" title="Por favor, ingresa 'SÍ' o 'NO'">
+                                <datalist id="itemRem">
+                                    <option value="SÍ">
+                                    <option value="NO">
+                                </datalist>
+                            </div>
+                            <div class="texPorc"> <label for="porcentaje">PORCENTAJE:</label>
+                            </div>
+                            <div class="porcLic"> <input type="text" id="porcentaje" name="porcentaje"
+                                    placeholder="100%" title="Por favor, ingresá un número" oninput="formatPercentage(this)" pattern="\d*" inputmode="numeric">
+                            </div>
+                            <div class="texCantDias"> <label for="cantDiasSolicitados">CANTIDAD DE DÍAS
+                                    SOLICITADOS:</label>
+                            </div>
+                            <div class="cantDiasLic"> <input type="number" id="cantDiasSolicitados"
+                                    name="cantDiasSolicitados" placeholder="10" pattern="[0-9]+"
+                                    title="Por favor, ingresá solo números">
+                            </div>
+                            <div class="textObliga"> <label for="obligaciones">OBLIGACIONES:</label>
+                            </div>
+                            <div class="ObligLic"> <input type="number" id="obligaciones" name="obligaciones"
+                                    placeholder="30" pattern="[0-9]+" title="Por favor, ingresá solo números">
+                            </div>
+                            <div class="normaLegLic">
+                                <label for="normaLegal">NORMA LEGAL:</label>
+                                <input type="text" id="normaLegal" name="normaLegal">
+
+                                <label for="articulo">ART.:</label>
+                                <input type="text" id="articulo" name="articulo">
+
+                                <label for="inciso">INC.:</label>
+                                <input type="text" id="inciso" name="inciso">
+                            </div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Rubro 4.3: Traslados</legend>
+                        <section class="traslados">
+                            <div class="textCausaTraslado"><label for="causaTraslado">CAUSA:</label></div>
+                            <div class="causaTraslado"> <textarea id="causaTraslado" name="causaTraslado" rows="2"
+                                    placeholder="Ingrese la causa del traslado"></textarea>
+                            </div>
+                            <div class="textDesTraslado"> <label for="destinoTraslado">DESTINO:</label>
+                            </div>
+                            <div class="destinoTraslado"> <textarea id="destinoTraslado" name="destinoTraslado" rows="2"
+                                    placeholder="Ingrese el destino del traslado"></textarea></div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Rubro 4.4: Permutas</legend>
+                        <section class="permutas">
+                            <div class="textNomPermu"> <label for="apellidoNombrePermutante">APELLIDO Y NOMBRE DEL AGT.
+                                    PERMUTANTE:</label>
+                            </div>
+                            <div class="nombrePermutante"> <input type="text" id="apellidoNombrePermutante"
+                                    name="apellidoNombrePermutante"  inputmode="text">
+                            </div>
+                            <div class="textDocPermut"> <label for="numeroDocumentoPermutante">N° DOCUMENTO:</label>
+                            </div>
+                            <div class="docPermutante"> <input type="text" id="numeroDocumentoPermutante"
+                                    name="numeroDocumentoPermutante"  inputmode="text">
+                            </div>
+                        </section>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Rubro 4.5: Baja o cese</legend>
+                        <section class="renuncia">
+                            <div class="textRenuncia"> <label for="motivoBaja">MOTIVO:</label>
+                            </div>
+                            <div class="causaRenuncia">
+                                <input type="text" id="motivoBaja" name="motivoBaja" list="itemBaja">
+                                <datalist id="itemBaja">
+                                    <option value="B-01: Renuncia">
+                                    <option value="B-02: Fallecimiento">
+                                    <option value="B-03: Jubilación">
+                                    <option value="B-04: Presentación del titular">
+                                    <option value="B-05: Cese docente designado s/ límite">
+                                </datalist>
+                            </div>
+                        </section>
+                    </fieldset>
+                </div>
+            </section>
+
+            <!--SEGUNDA PARTE DEL FU-->
+            <section class="segunda">
+                <fieldset>
+                    <legend>Rubro 5: Descripción del cargo u horas afectados al trámite</legend>
+                    <!-- Establecimiento 1-->
+                    <div class="contenedorEstablUno">
+                        <div class="sinTextEstable"></div>
+                        <div class="textNomNumEsta"><label for="nombreEstablecimiento1">NOMBRE Y N°:</label></div>
+                        <div class="textEstable">
+                            <p>ESTABLECIMIENTO:</p>
+                        </div>
+                        <div class="texCueEstabl"><label for="cueEstablecimiento1">CUE:</label></div>
+                        <div class="textNivelEstabl"><label for="nivelEstablecimiento1">NIVEL:</label></div>
+                        <div class="establecimientoUno"><input type="text" id="nombreEstablecimiento1"
+                                name="nombreEstablecimiento1"  inputmode="text" placeholder="Escuela Secundaria N° 1 Ireneo Funes"></div>
+                        <div class="cueEstablUno"><input type="text" id="cueEstablecimiento1" inputmode="numeric"
+                                name="cueEstablecimiento1" placeholder="300-1234"></div>
+                        <div class="nivelEstablUno"><input type="text" id="nivelEstablecimiento1"  inputmode="text"
+                                name="nivelEstablecimiento1" placeholder="Secundario">
+                        </div>
+                    </div>
+
+                    <!--textos en vertical-->
+                    <div class="textosVerticalesEstabl">
+                        <div class="cargoMateria">
+                            <p>Cargo y materia</p>
+                        </div>
+                        <div class="turno">
+                            <p class="vertical-text">Turno</p>
+                        </div>
+                        <div class="seccionAnio">
+                            <p class="vertical-text">Año</p>
+                        </div>
+                        <div class="division">
+                            <p class="vertical-text">Sección</p>
+                        </div>
+                        <div class="horasCat">
+                            <p class="vertical-text">Cantidad h cátedras</p>
+                        </div>
+                        <div class="sitRev">
+                            <p class="vertical-text">Sit. Revista</p>
+                        </div>
+                        <div class="antiSitRev">
+                            <p class="vertical-text">Antigüedad sit.</br> revista que detalla</p>
+                        </div>
+                        <div class="frenteAlum">
+                            <p class="vertical-text">Frente a alumnos</br> SÍ o NO</p>
+                        </div>
+                        <div class="dias">
+                            <p class="vertical-text">DÍA</p>
+                        </div>
+                        <div class="horarioCla">
+                            <p class="vertical-text">Horario de Clase</p>
+                        </div>
+                    </div>
+
+                    <!--filas del establecimiento 1-->
+                    <!-- FILA-1 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo1_1"  inputmode="text"
+                                placeholder="Profesor de Literatura Argentina"></div>
+                        <div class="turno">
+                            <input type="text" id="turno1_1" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado" placeholder="M">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso1_1"  inputmode="text" placeholder="5"></div>
+                        <div class="division"> <input type="text" id="division1_1"  inputmode="text" placeholder="A"></div>
+                        <div class="horasCat"> <input type="text" id="horas1_1"  inputmode="text" placeholder="2"></div>
+                        <div class="sitRev"> <input type="text" id="revista1_1"  inputmode="text" placeholder="T"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant1_1"  inputmode="text" placeholder="1A, 2M"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo1_1" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'" placeholder="SÍ">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia1_1" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado" placeholder="VI">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario1_1" maxlength="11" placeholder="hh:mm-hh:mm"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-2 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo2_1"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno2_1" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"> <input type="text" id="curso2_1"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division2_1"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas2_1"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista2_1"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant2_1"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo2_1" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia2_1" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario2_1" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-3 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo3_1"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno3_1" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"> <input type="text" id="curso3_1"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division3_1"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas3_1"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista3_1"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant3_1"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo3_1" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia3_1" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario3_1" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-4 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo4_1"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno4_1" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"> <input type="text" id="curso4_1"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division4_1"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas4_1"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista4_1"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant4_1"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo4_1" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia4_1" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario4_1" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-5 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo5_1"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno5_1" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"> <input type="text" id="curso5_1"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division5_1"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas5_1"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista5_1"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant5_1"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo5_1" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia5_1" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario5_1" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-6 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo6_1"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno6_1" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"> <input type="text" id="curso6_1"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division6_1"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas6_1"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista6_1"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant6_1"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo6_1" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia6_1" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario6_1" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-7 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo7_1"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno7_1" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"> <input type="text" id="curso7_1"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division7_1"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas7_1"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista7_1"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant7_1"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo7_1" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia7_1" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario7_1" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+
+                    <!-- Establecimiento 2-->
+                    <div class="contenedorEstablDos">
+                        <div class="textEstabl">
+                            <p>ESTABLECIMIENTO:</p>
+                        </div>
+                        <div class="estableDos"> <input type="text" id="nombreEstablecimiento2"  inputmode="text"></div>
+                        <div class="cueEstablDos"> <input type="text" id="cueEstablecimiento2" inputmode="numeric"></div>
+                        <div class="nivelEstablDos"> <input type="text" id="nivelEstablecimiento2"  inputmode="text"></div>
+                    </div>
+
+                    <!--filas del establecimiento 2-->
+                    <!-- FILA-1 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo1_2"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno1_2" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso1_2"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division1_2"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas1_2"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista1_2"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant1_2"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo1_2" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia1_2" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario1_2" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-2 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo2_2"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno2_2" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso2_2"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division2_2"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas2_2"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista2_2"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant2_2"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo2_2" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia2_2" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario2_2" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-3 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo3_2"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno3_2" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso3_2"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division3_2"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas3_2"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista3_2"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant3_2"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo3_2" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia3_2" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario3_2" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-4 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo4_2"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno4_2" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso4_2"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division4_2"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas4_2"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista4_2"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant4_2"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo4_2" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia4_2" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario4_2" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-5 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo5_2"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno5_2" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso5_2"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division5_2"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas5_2"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista5_2"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant5_2"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo5_2" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia5_2" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario5_2" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-6 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo6_2"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno6_2" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso6_2"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division6_2"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas6_2"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista6_2"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant6_2"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo6_2" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia6_2" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario6_2" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-7 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo7_2"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno7_2" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso7_2"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division7_2"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas7_2"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista7_2"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant7_2"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo7_2" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia7_2" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario7_2" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                </fieldset>
+            </section>
+
+            <!--TERCERA PARTE DEL FU-->
+            <section class="tercera">
+                <fieldset>
+                    <legend>Rubro 5: Descripción del cargo u horas afectados al trámite (continuación)</legend>
+                    <!-- Establecimiento 3-->
+                    <div class="contenedorEstablUno">
+                        <div class="sinTextEstable"></div>
+                        <div class="textNomNumEsta"><label for="nombreEstablecimiento3">NOMBRE Y N°:</label></div>
+                        <div class="textEstable">
+                            <p>ESTABLECIMIENTO:</p>
+                        </div>
+                        <div class="texCueEstabl"><label for="cueEstablecimiento3">CUE:</label></div>
+                        <div class="textNivelEstabl"><label for="nivelEstablecimiento3">NIVEL:</label></div>
+                        <div class="establecimientoUno"><input type="text" id="nombreEstablecimiento3"  inputmode="text"></div>
+                        <div class="cueEstablUno"><input type="text" id="cueEstablecimiento3" inputmode="numeric"></div>
+                        <div class="nivelEstablUno"><input type="text" id="nivelEstablecimiento3"  inputmode="text"></div>
+                    </div>
+
+                    <!--Textos en vertical-->
+                    <div class="textosVerticalesEstabl">
+                        <div class="cargoMateria">
+                            <p>Cargo y materia</p>
+                        </div>
+                        <div class="turno">
+                            <p class="vertical-text">Turno</p>
+                        </div>
+                        <div class="seccionAnio">
+                            <p class="vertical-text">Año</p>
+                        </div>
+                        <div class="division">
+                            <p class="vertical-text">Sección</p>
+                        </div>
+                        <div class="horasCat">
+                            <p class="vertical-text">Cantidad h cátedras</p>
+                        </div>
+                        <div class="sitRev">
+                            <p class="vertical-text">Sit. Revista</p>
+                        </div>
+                        <div class="antiSitRev">
+                            <p class="vertical-text">Antigüedad sit.</br> revista que detalla</p>
+                        </div>
+                        <div class="frenteAlum">
+                            <p class="vertical-text">Frente a alumnos</br> SÍ o NO</p>
+                        </div>
+                        <div class="dias">
+                            <p class="vertical-text">DÍA</p>
+                        </div>
+                        <div class="horarioCla">
+                            <p class="vertical-text">Horario de Clase</p>
+                        </div>
+                    </div>
+
+                    <!-- Filas del establecimiento 3 -->
+                    <!-- FILA-1 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo1_3"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno1_3" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso1_3"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division1_3"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas1_3"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista1_3"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant1_3"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo1_3" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia1_3" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario1_3" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-2 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo2_3"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno2_3" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso2_3"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division2_3"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas2_3"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista2_3"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant2_3"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo2_3" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia2_3" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario2_3" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-3 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo3_3"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno3_3" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso3_3"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division3_3"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas3_3"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista3_3"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant3_3"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo3_3" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia3_3" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario3_3" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-4 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo4_3"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno4_3" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso4_3"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division4_3"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas4_3"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista4_3"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant4_3"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo4_3" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia4_3" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario4_3" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-5 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo5_3"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno5_3" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso5_3"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division5_3"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas5_3"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista5_3"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant5_3"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo5_3" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia5_3" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario5_3" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-6 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo6_3"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno6_3" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso6_3"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division6_3"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas6_3"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista6_3"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant6_3"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo6_3" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia6_3" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario6_3" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-7 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo7_3"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno7_3" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso7_3"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division7_3"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas7_3"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista7_3"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant7_3"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo7_3" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia7_3" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario7_3" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+
+                    <!-- Establecimiento 4 -->
+                    <div class="contenedorEstablDos">
+                        <div class="textEstabl">
+                            <p>ESTABLECIMIENTO:</p>
+                        </div>
+                        <div class="estableDos"><input type="text" id="nombreEstablecimiento4"  inputmode="text"></div>
+                        <div class="cueEstablDos"><input type="text" id="cueEstablecimiento4" inputmode="numeric"></div>
+                        <div class="nivelEstablDos"><input type="text" id="nivelEstablecimiento4"  inputmode="text"></div>
+                    </div>
+
+                    <!--Inicio filas establecimiento 4-->
+                    <!-- FILA-1 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo1_4"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno1_4" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso1_4"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division1_4"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas1_4"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista1_4"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant1_4"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo1_4" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia1_4" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario1_4" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-2 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo2_4"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno2_4" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso2_4"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division2_4"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas2_4"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista2_4"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant2_4"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo2_4" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia2_4" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario2_4" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-3 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo3_4"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno3_4" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso3_4"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division3_4"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas3_4"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista3_4"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant3_4"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo3_4" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia3_4" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario3_4" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-4 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo4_4"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno4_4" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso4_4"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division4_4"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas4_4"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista4_4"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant4_4"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo4_4" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia4_4" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario4_4" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-5 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo5_4"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno5_4" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso5_4"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division5_4"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas5_4"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista5_4"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant5_4"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo5_4" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia5_4" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario5_4" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-6 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo6_4"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno6_4" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso6_4"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division6_4"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas6_4"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista6_4"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant6_4"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo6_4" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia6_4" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario6_4" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                    <!-- FILA-7 -->
+                    <div class="filasCargaDatosEstabl">
+                        <div class="cargoMat"><input type="text" id="cargo7_4"  inputmode="text"></div>
+                        <div class="turno">
+                            <input type="text" id="turno7_4" list="itemTurnos" pattern="^(M|T|N|C|R|V)$"
+                                title="Por favor, ingresá un turno válido abreviado">
+                            <datalist id="itemTurnos">
+                                <option value="M" label="Mañana">
+                                <option value="T" label="Tarde">
+                                <option value="N" label="Noche">
+                                <option value="C" label="Completo">
+                                <option value="R" label="Rotativo">
+                                <option value="V" label="Vespertino">
+                            </datalist>
+                        </div>
+                        <div class="seccionAnio"><input type="text" id="curso7_4"  inputmode="text"></div>
+                        <div class="division"> <input type="text" id="division7_4"  inputmode="text"></div>
+                        <div class="horasCat"> <input type="text" id="horas7_4"  inputmode="text"></div>
+                        <div class="sitRev"> <input type="text" id="revista7_4"  inputmode="text"></div>
+                        <div class="antiSitRev"> <input type="text" id="ant7_4"  inputmode="text"></div>
+                        <div class="frenteAlum">
+                            <input type="text" id="alumnoSiNo7_4" list="itemFrenAlum" pattern="^(SÍ|NO)$"
+                                title="Por favor, ingresá 'SÍ' o 'NO'">
+                            <datalist id="itemFrenAlum">
+                                <option value="SÍ">
+                                <option value="NO">
+                            </datalist>
+                        </div>
+                        <div class="dias">
+                            <input type="text" id="dia7_4" list="itemDias" pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
+                                title="Por favor, ingresá un día válido abreviado">
+                            <datalist id="itemDias">
+                                <option value="LU" label="Lunes">
+                                <option value="MA" label="Martes">
+                                <option value="MI" label="Miércoles">
+                                <option value="JU" label="Jueves">
+                                <option value="VI" label="Viernes">
+                                <option value="SÁ" label="Sábado">
+                                <option value="SE" label="Semana">
+                            </datalist>
+                        </div>
+                        <div class="horarioCla"> <input type="text" id="horario7_4" maxlength="11"  title="Solo ingresá los números" oninput="formatTime(this)" pattern="\d*" inputmode="numeric"></div>
+                    </div>
+                </fieldset>
+            </section>
+
+            <!--CUARTA PARTE DEL FU-->
+            <section class="cuarta">
+                <fieldset>
+                    <legend>Rubro 6: Firma de los responsables</legend>
+                    <div class="firmaResponsables">
+                        <div class="textoFirma">
+                            <p id="textoFirma">Los abajo firmantes hemos confeccionado este formulario con carácter de
+                                declaración
+                                jurada sin omitir
+                                ni falsear dato alguno que debe contener, siendo fiel expresión de la verdad. Este
+                                trámite tiene
+                                carácter de condicional hasta que sean verificados todos los datos en la subdireccion de
+                                recursos
+                                humanos del CGE. Y en caso de irregularidades, el CGE se reserva el derecho de accionar
+                                según lo
+                                indica la normativa vigente, sobre los intervinientes en el trámite.</p>
+                        </div>
+                        <div class="fechaUna"> <label for="fechaSolicitante">FECHA:</label>
+                            <input type="date" id="fechaSolicitante">
+                        </div>
+                        <div class="fechaDos"> <label for="fechaDirector">FECHA:</label>
+                            <input type="date" id="fechaDirector">
+                        </div>
+                        <div class="fechaTres"> <label for="fechaResponsable">FECHA:</label>
+                            <input type="date" id="fechaResponsable">
+                        </div>
+                        <div class="textAclaUna">
+                            <p>FIRMA Y ACLARACION DEL SOLICITANTE</p>
+                        </div>
+                        <div class="textAclaDos">
+                            <p>FIRMA, ACLARACIÓN Y SELLO DEL </br> DIRECTOR DEL ESTABLECIMIENTO INICIADOR</p>
+                        </div>
+                        <div class="textAclaTres">
+                            <p>FIRMA Y ACLARACION DEL RESPONSABLE</p>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Rubro 7: Autorización del trámite</legend>
+
+                    <div class="autorizacionTramite">
+                        <div class="textAutor">
+                            <p>¿SE AUTORIZA EL TRÁMITE? (SÍ/NO)</p>
+                        </div>
+                        <div class="numRes"> <label for="numeroRes">N° RES.:</label>
+                            <input type="text" id="numeroRes">
+                        </div>
+                        <div class="fechaAutor"> <label for="fechaAutorizacionTramite">FECHA:</label>
+                            <input type="text" id="fechaAutorizacionTramite">
+                        </div>
+                        <div class="texCodFun"> <label for="codigoDelFuncionario">CÓDIGO DEL FUNCIONARIO
+                                AUTORIZANTE:</label>
+                        </div>
+                        <div class="codFun"> <input type="text" id="codigoDelFuncionario">
+                        </div>
+                        <div class="sinTexAutor"></div>
+                        <div class="textObserAutor"> <label for="observaciones">OBSERVACIONES:</label>
+                        </div>
+                        <div class="observaciones"> <textarea id="observaciones"> </textarea></div>
+                        <div class="textFirmaAutor">
+                            <p>FIRMA, ACLARACIÓN Y SELLO DEL FUNCIONARIO AUTORIZANTE</p>
+                        </div>
+                    </div>
+
+
+
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Rubro 8: Listado de documentación adosado al trámite</legend>
+                    <textarea rows="6" placeholder="Escribe..." id="documentacioAdjunta"></textarea>
+                </fieldset>
+            </section>
+        </form>
+
+        <section id="about" style="display: none;">
+            <h2>Acerca de esta página</h2>
+            <p>Soy Maximiliano Lapalma, profesor, y esta página la creé con un propósito claro: ahorrar algo de tiempo.
+                Como docente, estaba
+                cansado de tener que copiar a mano y completar este formulario cada vez que necesitaba renovar una
+                licencia, solicitar una o completarlo para una designación a un cargo y/u horas cátedras. O cada vez que
+                los demonios intervenían. En fin...</p>
+            <p>Esta página está diseñada para facilitar la vida de los y las docentes de Entre Ríos. Pero aquí van
+                algunas aclaraciones importantes:</p>
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i> El formulario <b>no envía ningún dato a ninguna base de
+                        datos</b>.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Los datos que completes se <b>guardan únicamente en tu
+                        navegador y no se comparten con nada ni nadie</b>. (Esto es mucho muy importante).</li>
+                <li><i class="fa-solid fa-circle-check"></i> El diseño del formulario es bastante complicado ("yo no lo
+                    hices" como diría Apu Nahasapeemapetilon), pero respeté, lo más que pude, su
+                    versión en papel.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Estaría trabajando en hacerlo compatible con teléfonos
+                    móviles, pero llevará algo de tiempo. Más allá de esto, muchos datos se pueden cargar desde el teléfono,
+                    estaría optimizado para eso. Por ejemplo, para cargar el horario solo deben escribir los números y la página
+                     agrega los dos puntos y el guion medio, lo mismo con el porcentaje, entre otras cosas.
+                     En otros casos, como los días y los turnos, les van a aparecer opciones rápidas en el teclado del teléfono, con lo que alcanza con cliquear y chau te fuiste.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Por lo anterior, funciona mejor en una PC y un
+                    <strong>navegador actualizado</strong>, nada de Win
+                    XP o Internet Explorer como se usan en el CGE.
+                </li>
+                <li><i class="fa-solid fa-circle-check"></i> Se imprime en A4 idealmente, pero no para otros tamaños
+                    (tampoco me interesa hacerlo). También pueden imprimirlo sin cargar dato alguno; los colores y
+                    ejemplos no se imprimen.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Para guardar en PDF, hagan clic en imprimir, luego elijan
+                    la impresora "Guardar como PDF" y listo el pollo.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Sí, me gustan Los Simpson.</li>
+            </ul>
+            <p>En resumen, espero que esta herramienta sea tan útil para ustedes como lo fue para mí en su momento.</p>
+            <p>Por consultas (consultas, nada de insultos) pueden escribirme <a
+                    href="mailto:edicionmaximiliano@gmail.com">acá</a>.</p>
+            <p>Si sos del Consejo y copiás este código, citá la fuente.</p>
+            <p id="saludoFinal"><b>Gracias, vuelvas prontos.</b></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Hecho por Maximiliano Lapalma. Para consultas:
+            <a href="mailto:edicionmaximiliano@gmail.com">edicionmaximiliano@gmail.com</a>
+            <a href="https://github.com/maximlapalma" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/maximlapalma" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        </p>
+    </footer>
+
+</body>
+
+
+</html>

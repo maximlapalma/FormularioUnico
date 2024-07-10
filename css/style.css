@@ -1,0 +1,1191 @@
+@charset "UTF-8";
+/* Reinicio CSS básico */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+body {
+  line-height: 1;
+  margin: 0.2rem; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+label {
+  text-align: left;
+  font-size: 0.6rem; }
+
+input,
+select {
+  padding: 0px;
+  margin: 0px; }
+
+fieldset {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  border-style: groove;
+  border-color: black;
+  border-image: initial;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  padding-left: 0.5rem;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
+  padding-right: 0.3rem; }
+
+p {
+  font-size: 0.6rem; }
+
+/*Input normal y focus*/
+/*Textos centrados*/
+/*Normal y focus de textarea*/
+/*Textos verticales*/
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.6em; }
+
+.textosVerticalesEstabl {
+  display: grid;
+  grid-template-columns: 45% 5% 5% 5% 5% 5% 10% 5% 5% 10%;
+  grid-template-rows: 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: end;
+  text-align: left;
+  justify-items: center;
+  margin-bottom: 0.3rem;
+  margin-top: 0.2rem;
+  grid-template-areas: "cargoMateria turno seccionAnio division horasCat sitRev antiSitRev frenteAlum dias horarioCla"; }
+
+.cargoMateria {
+  grid-area: cargoMateria; }
+
+.turno {
+  grid-area: turno; }
+
+.seccionAnio {
+  grid-area: seccionAnio; }
+
+.division {
+  grid-area: division; }
+
+.horasCat {
+  grid-area: horasCat; }
+
+.sitRev {
+  grid-area: sitRev; }
+
+.antiSitRev {
+  grid-area: antiSitRev; }
+
+.frenteAlum {
+  grid-area: frenteAlum; }
+
+.dias {
+  grid-area: dias; }
+
+.horarioCla {
+  grid-area: horarioCla; }
+
+/*Filas de carga de establecimientos y materias*/
+.filasCargaDatosEstabl {
+  display: grid;
+  grid-template-columns: 45% 5% 5% 5% 5% 5% 10% 5% 5% 10%;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  grid-template-areas: "cargoMat turno seccionAnio division horasCat sitRev antiSitRev frenteAlum dias horarioCla";
+  width: 100%; }
+
+.cargoMat {
+  grid-area: cargoMat; }
+  .cargoMat input {
+    width: 99%; }
+
+.turno {
+  grid-area: turno; }
+  .turno input {
+    width: 90%; }
+
+.seccionAnio {
+  grid-area: seccionAnio; }
+  .seccionAnio input {
+    width: 90%; }
+
+.division {
+  grid-area: division; }
+  .division input {
+    width: 90%; }
+
+.horasCat {
+  grid-area: horasCat; }
+  .horasCat input {
+    width: 90%; }
+
+.sitRev {
+  grid-area: sitRev; }
+  .sitRev input {
+    width: 90%; }
+
+.antiSitRev {
+  grid-area: antiSitRev; }
+  .antiSitRev input {
+    width: 95%; }
+
+.frenteAlum {
+  grid-area: frenteAlum; }
+  .frenteAlum input {
+    width: 90%; }
+
+.dias {
+  grid-area: dias; }
+  .dias input {
+    width: 90%; }
+
+.horarioCla {
+  grid-area: horarioCla; }
+  .horarioCla input {
+    width: 98%; }
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, #414141, #0c0c0c);
+  cursor: pointer;
+  color: white;
+  position: relative;
+  /* Asegura que el menú se posicione relativo al navbar */
+  transition: background-color 0.3s, color 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
+
+.navbar-toggle {
+  cursor: pointer;
+  display: none;
+  /* Ocultar por defecto en pantallas grandes */ }
+
+.navbar-menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  top: 100%;
+  /* Alinea el menú justo debajo de la barra de navegación */
+  left: 0;
+  background-image: linear-gradient(to right, #414141, #0c0c0c);
+  width: 100%; }
+
+.navbar-menu.active {
+  display: flex;
+  /* Mostrar menú al activarlo */ }
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 1em; }
+
+.navbar-menu a:hover {
+  background-color: white;
+  color: #333; }
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1em; }
+  .navbar-menu {
+    display: none;
+    /* Ocultar menú en pantallas pequeñas */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    /* Alinea el menú justo debajo de la barra de navegación */
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 1em 1em; }
+  .navbar-menu.active {
+    display: flex;
+    /* Mostrar menú al activarlo */
+    font-weight: normal;
+    align-items: flex-start;
+    justify-content: center; }
+  .navbar-toggle {
+    display: block;
+    /* Mostrar botón de menú en pantallas pequeñas */ }
+  /* Ajustar el contenido principal para evitar que se solape con el menú */
+  body {
+    padding-top: 0;
+    margin: 0px;
+    /* Ajustar según el tamaño del menú */ } }
+
+/*Acerca de texto*/
+#about {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: linear-gradient(to bottom right, #010e29, #252426);
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  font-family: "Arial", sans-serif; }
+  #about h2 {
+    font-size: medium;
+    font-weight: bolder;
+    text-align: center;
+    color: #e3e3e3;
+    padding-bottom: 1rem; }
+  #about a {
+    color: #e3e3e3;
+    text-decoration: underline;
+    cursor: pointer; }
+  #about p,
+  #about ul {
+    font-size: medium;
+    color: #e3e3e3;
+    line-height: 1.5rem; }
+    #about p b,
+    #about ul b {
+      font-weight: bolder; }
+    #about p li,
+    #about ul li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 35px; }
+    #about p li::before,
+    #about ul li::before {
+      padding-left: 4px; }
+
+#saludoFinal {
+  text-align: right; }
+
+/*Al fin, el footer*/
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ccc; }
+
+footer p {
+  margin: 0;
+  font-size: 12px;
+  color: #333; }
+
+footer a {
+  color: #333;
+  text-decoration: none; }
+
+footer a:hover {
+  text-decoration: underline; }
+
+/* Estilo para el formulario */
+#print-form {
+  display: block;
+  /* Por defecto visible */ }
+
+/* Estilo para el texto Acerca de */
+#about-text {
+  display: none;
+  /* Por defecto oculto */ }
+
+/* Estilos específicos para impresión */
+@media print {
+  body * {
+    visibility: hidden; }
+  @page {
+    size: A4;
+    /* Tamaño de la página */
+    margin: 10mm;
+    /* Márgenes para toda la página */ }
+  #form,
+  #form * {
+    visibility: visible; }
+  #form {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 210mm;
+    height: 297mm;
+    border: none;
+    margin-top: 0.5rem; }
+  input::placeholder {
+    color: transparent; }
+  textarea::placeholder {
+    color: transparent; }
+  input[type="date"]::-webkit-datetime-edit-month-field,
+  input[type="date"]::-webkit-datetime-edit-day-field,
+  input[type="date"]::-webkit-datetime-edit-year-field {
+    color: inherit;
+    /* Restaurar el color del texto para el usuario */ } }
+
+body {
+  font-family: Arial, sans-serif; }
+
+form {
+  width: 794px;
+  /* Tamaño A4 en píxeles (ancho) */
+  margin: 0 auto;
+  padding: 1.5rem;
+  margin-top: 4rem;
+  border: 1px solid black;
+  background-image: linear-gradient(to right, #9a9a9a, #cdcdcd); }
+
+/*PRIMERA SECCIÓN*/
+/*Se crean dos columnas para la primera sección*/
+.primera {
+  display: grid;
+  /* Activa el modo Grid Layout */
+  grid-template-columns: repeat(2, 397px);
+  /* Define dos columnas de igual ancho */ }
+
+/*Margen para la columna 1*/
+.columna-1 {
+  margin-right: 10px; }
+
+/*Efectos de focus*/
+fieldset {
+  background-color: #f5f5f5; }
+  fieldset :focus-within label {
+    color: #007bff;
+    font-weight: bolder; }
+  fieldset input {
+    height: 1rem; }
+  fieldset input {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-small;
+    font-style: oblique;
+    font-weight: bold;
+    transition: all 0.15s ease;
+    box-sizing: content-box;
+    /* Estado normal por defecto */ }
+  fieldset input:focus {
+    border: 2px solid #007bff;
+    border-radius: 2px;
+    outline: none;
+    box-shadow: 0 0 3px #007bff;
+    text-align: center;
+    background-color: #c5e0fd;
+    /* Estilo al enfocar */ }
+  fieldset textarea {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    text-align: left;
+    transition: all 0.15s ease; }
+  fieldset textarea:focus {
+    border: 2px solid #007bff;
+    border-radius: 2px;
+    outline: none;
+    box-shadow: 0 0 3px #007bff;
+    text-align: left; }
+
+/*Apariencia marcos "fieldsets" del formulario*/
+fieldset legend {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  text-align: left;
+  font-size: small;
+  font-style: italic;
+  color: #333;
+  margin: 5px 5px 5px 5px;
+  padding: 4px 4px;
+  background-color: #f5f5f5;
+  margin-top: 0.5rem;
+  border-radius: 3px;
+  border: 2px solid; }
+
+/*Primera columna de la primera sección*/
+/*Visualización presentación del formulario*/
+.tituloFormulario {
+  display: grid;
+  grid-template-columns: 0.2fr 1.6fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  grid-template-areas: "imgForm tituloForm"; }
+
+.imgForm {
+  grid-area: imgForm;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center; }
+  .imgForm img {
+    max-width: 90%;
+    max-height: 90%; }
+
+.tituloForm {
+  grid-area: tituloForm;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 1vw; }
+  .tituloForm h1 {
+    font-size: 1em;
+    margin-bottom: 3px;
+    font-weight: bold; }
+  .tituloForm p {
+    font-size: x-small; }
+
+/*Visualización Rubro 1: Carátula del trámite*/
+.caratulaTramite {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0fr 0fr 0fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 2px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "caratulaFila1" "caratulaFila2" "caratulaFila3"; }
+
+.caratulaFila1 {
+  grid-area: caratulaFila1;
+  display: grid;
+  grid-template-columns: 16% 84%;
+  grid-template-rows: 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "textTipoTram tipoTramSelec"; }
+
+.textTipoTram {
+  grid-area: textTipoTram; }
+
+.tipoTramSelec {
+  grid-area: tipoTramSelec; }
+  .tipoTramSelec input {
+    width: 98%; }
+
+.caratulaFila2 {
+  grid-area: caratulaFila2;
+  display: grid;
+  grid-template-columns: 16% 16% 16% 16% 16% 20%;
+  grid-template-rows: 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "textNumTram tipoTram dto cueTram numTram anioTram"; }
+
+.textNumTram {
+  grid-area: textNumTram;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.tipoTram {
+  grid-area: tipoTram; }
+  .tipoTram input {
+    width: 90%; }
+
+.dto {
+  grid-area: dto; }
+  .dto input {
+    width: 90%; }
+
+.cueTram {
+  grid-area: cueTram; }
+  .cueTram input {
+    width: 90%; }
+
+.numTram {
+  grid-area: numTram; }
+  .numTram input {
+    width: 90%; }
+
+.anioTram {
+  grid-area: anioTram; }
+  .anioTram input {
+    width: 90%; }
+
+.caratulaFila3 {
+  grid-area: caratulaFila3;
+  display: grid;
+  grid-template-columns: 16% 16% 16% 16% 16% 20%;
+  grid-template-rows: 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "sinText tipoTex textDto textCue texNumTram textAnioTram";
+  align-items: center;
+  justify-items: stretch;
+  text-align: center;
+  margin-bottom: 3px; }
+
+.sinText {
+  grid-area: sinText; }
+
+.tipoTex {
+  grid-area: tipoTex; }
+
+.textDto {
+  grid-area: textDto; }
+
+.textCue {
+  grid-area: textCue; }
+
+.texNumTram {
+  grid-area: texNumTram; }
+
+.textAnioTram {
+  grid-area: textAnioTram; }
+
+/*Visualización Rubro 2: datos del solicitante*/
+.datosSolicitante {
+  display: grid;
+  grid-template-columns: 0.4fr 1.7fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "textApellidoDatos apellidosDatos" "textNombreDatos nombresDatos" "textDniDatos dniDatos" "textTipoDoc tipoDoc" "textSexDatos sexoDatos"; }
+
+.textApellidoDatos {
+  grid-area: textApellidoDatos;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.apellidosDatos {
+  grid-area: apellidosDatos; }
+  .apellidosDatos input {
+    width: 95%; }
+
+.textNombreDatos {
+  grid-area: textNombreDatos;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.nombresDatos {
+  grid-area: nombresDatos; }
+  .nombresDatos input {
+    width: 95%; }
+
+.textDniDatos {
+  grid-area: textDniDatos;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.dniDatos {
+  grid-area: dniDatos; }
+  .dniDatos input {
+    width: 95%; }
+
+.textTipoDoc {
+  grid-area: textTipoDoc;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.tipoDoc {
+  grid-area: tipoDoc;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%; }
+  .tipoDoc label {
+    margin-right: 0.5rem; }
+
+.textSexDatos {
+  grid-area: textSexDatos;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.sexoDatos {
+  grid-area: sexoDatos;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%; }
+  .sexoDatos label {
+    margin-right: 0.5rem; }
+
+/*Visualización Rubro 3: Datos del establecimiento iniciador*/
+.establecimientoIniciador {
+  display: grid;
+  grid-template-columns: 0.4fr 1.6fr;
+  grid-template-rows: 1fr 2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "textEscuelaIni escuelaInic" "textCueInic cueInici";
+  align-content: center;
+  align-items: center;
+  justify-items: stretch; }
+  .establecimientoIniciador input {
+    width: 95%; }
+
+.textEscuelaIni {
+  grid-area: textEscuelaIni;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.escuelaInic {
+  grid-area: escuelaInic; }
+
+.textCueInic {
+  grid-area: textCueInic;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.cueInici {
+  grid-area: cueInici; }
+
+/*Visualización Rubro 4: datos del trámite*/
+.datosTramite {
+  display: grid;
+  grid-template-columns: 0.4fr 1.6fr;
+  grid-template-rows: 1fr 2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "textFechaInic fechaInicio" "texFechaFin fechaFinalizacion";
+  align-content: center;
+  justify-content: space-evenly;
+  justify-items: stretch;
+  align-items: center; }
+  .datosTramite input {
+    width: 95%; }
+
+.textFechaInic {
+  grid-area: textFechaInic;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.fechaInicio {
+  grid-area: fechaInicio; }
+
+.texFechaFin {
+  grid-area: texFechaFin;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.fechaFinalizacion {
+  grid-area: fechaFinalizacion; }
+
+/*Visualización Rubro 4.1: designaciones*/
+.designaciones {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  grid-template-areas: "textFechaPose fechaPosesion" "textNombreAgtReem agtReemplazado" "textDocReem docAgtReemplazado" "textCompletarDesig textCompletarDesig" "puntajeDesig puntajeDesig"; }
+  .designaciones input {
+    width: 90%; }
+
+.textFechaPose {
+  grid-area: textFechaPose;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.fechaPosesion {
+  grid-area: fechaPosesion; }
+
+.textNombreAgtReem {
+  grid-area: textNombreAgtReem;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.agtReemplazado {
+  grid-area: agtReemplazado; }
+
+.textDocReem {
+  grid-area: textDocReem;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.docAgtReemplazado {
+  grid-area: docAgtReemplazado; }
+
+.textCompletarDesig {
+  grid-area: textCompletarDesig;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold; }
+
+.puntajeDesig {
+  grid-area: puntajeDesig;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+  .puntajeDesig input {
+    width: 30%;
+    margin-left: 1vw;
+    margin-right: 1vw; }
+
+/*Visualización Rubro 4.2: licencias*/
+.licencias {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr;
+  gap: 2px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: stretch;
+  grid-template-areas: "textRem remuLic texPorc porcLic" "texCantDias cantDiasLic textObliga ObligLic" "normaLegLic normaLegLic normaLegLic normaLegLic"; }
+
+.textRem {
+  grid-area: textRem;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.remuLic {
+  grid-area: remuLic; }
+  .remuLic input {
+    width: 50%; }
+
+.texPorc {
+  grid-area: texPorc;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.porcLic {
+  grid-area: porcLic; }
+  .porcLic input {
+    width: 50%; }
+
+.texCantDias {
+  grid-area: texCantDias;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.cantDiasLic {
+  grid-area: cantDiasLic; }
+  .cantDiasLic input {
+    width: 50%; }
+
+.textObliga {
+  grid-area: textObliga;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.ObligLic {
+  grid-area: ObligLic; }
+  .ObligLic input {
+    width: 50%; }
+
+.normaLegLic {
+  grid-area: normaLegLic;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center; }
+  .normaLegLic input {
+    margin-right: 3vw; }
+  .normaLegLic label {
+    margin-right: 2px; }
+  .normaLegLic #normaLegal {
+    width: 30%; }
+  .normaLegLic #articulo {
+    width: 10%; }
+  .normaLegLic #inciso {
+    width: 10%; }
+
+/*Visualización Rubro 4.3: traslados*/
+.traslados {
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "textCausaTraslado causaTraslado" "textDesTraslado destinoTraslado"; }
+  .traslados textarea {
+    width: 95%;
+    resize: none;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-style: italic; }
+
+.textCausaTraslado {
+  grid-area: textCausaTraslado;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.causaTraslado {
+  grid-area: causaTraslado; }
+
+.textDesTraslado {
+  grid-area: textDesTraslado;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.destinoTraslado {
+  grid-area: destinoTraslado; }
+
+/*Visualización Rubro 4.4: permutas*/
+.permutas {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-content: center;
+  justify-content: start;
+  align-items: center;
+  justify-items: stretch;
+  grid-template-areas: "textNomPermu nombrePermutante" "textDocPermut docPermutante"; }
+  .permutas input {
+    width: 90%; }
+
+.textNomPermu {
+  grid-area: textNomPermu;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.nombrePermutante {
+  grid-area: nombrePermutante; }
+
+.textDocPermut {
+  grid-area: textDocPermut;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.docPermutante {
+  grid-area: docPermutante; }
+
+/*Visualización Rubro 4.5: renuncia*/
+.renuncia {
+  display: grid;
+  grid-template-columns: 0.2fr 1.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "textRenuncia causaRenuncia"; }
+
+.textRenuncia {
+  grid-area: textRenuncia;
+  display: flex;
+  align-content: center;
+  align-items: center; }
+
+.causaRenuncia {
+  grid-area: causaRenuncia; }
+  .causaRenuncia input {
+    width: 95%; }
+
+/*Segunda, tercera y cuarta sección*/
+.segunda,
+.tercera {
+  display: grid;
+  width: 794px; }
+  .segunda fieldset,
+  .tercera fieldset {
+    padding: 1rem; }
+
+/*Visualización Rubro 5: Descripción del establecimiento*/
+/*Establecimiento 1ero*/
+.contenedorEstablUno {
+  display: grid;
+  grid-template-columns: 15% 45% 20% 20%;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "sinTextEstable textNomNumEsta texCueEstabl textNivelEstabl" "textEstable establecimientoUno cueEstablUno nivelEstablUno";
+  text-align: center;
+  align-items: center; }
+
+.sinTextEstable {
+  grid-area: sinTextEstable; }
+
+.textNomNumEsta {
+  grid-area: textNomNumEsta; }
+
+.textEstable {
+  grid-area: textEstable; }
+
+.texCueEstabl {
+  grid-area: texCueEstabl; }
+
+.textNivelEstabl {
+  grid-area: textNivelEstabl; }
+
+.establecimientoUno {
+  grid-area: establecimientoUno; }
+  .establecimientoUno input {
+    width: 100%; }
+
+.cueEstablUno {
+  grid-area: cueEstablUno; }
+  .cueEstablUno input {
+    width: 60%; }
+
+.nivelEstablUno {
+  grid-area: nivelEstablUno; }
+  .nivelEstablUno input {
+    width: 60%; }
+
+/*Establecimiento 2do*/
+.contenedorEstablDos {
+  display: grid;
+  grid-template-columns: 0fr 2fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 2px;
+  grid-auto-flow: row;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  grid-template-areas: "textEstabl estableDos cueEstablDos nivelEstablDos"; }
+
+.textEstabl {
+  grid-area: textEstabl; }
+
+.estableDos {
+  grid-area: estableDos; }
+  .estableDos input {
+    width: 99%; }
+
+.cueEstablDos {
+  grid-area: cueEstablDos; }
+  .cueEstablDos input {
+    width: 70%; }
+
+.nivelEstablDos {
+  grid-area: nivelEstablDos; }
+  .nivelEstablDos input {
+    width: 70%; }
+
+/*Visualización Rubro 6: Firma responsables*/
+.firmaResponsables {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-items: center;
+  align-items: center;
+  grid-template-areas: "textoFirma textoFirma textoFirma" "fechaUna fechaDos fechaTres" "textAclaUna textAclaDos textAclaTres"; }
+  .firmaResponsables p {
+    text-transform: uppercase;
+    line-height: 1.2em; }
+
+.textoFirma {
+  grid-area: textoFirma; }
+
+.fechaUna {
+  grid-area: fechaUna; }
+
+.fechaDos {
+  grid-area: fechaDos; }
+
+.fechaTres {
+  grid-area: fechaTres; }
+
+.textAclaUna {
+  grid-area: textAclaUna;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-align: center; }
+
+.textAclaDos {
+  grid-area: textAclaDos;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-align: center; }
+
+.textAclaTres {
+  grid-area: textAclaTres;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-align: center; }
+
+/*Visualización Rubro 7: Autorización trámite*/
+.autorizacionTramite {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0fr 0fr 1fr;
+  gap: 0px 2px;
+  grid-auto-flow: row;
+  justify-items: stretch;
+  align-items: center;
+  grid-template-areas: "textAutor numRes fechaAutor" "texCodFun codFun sinTexAutor" "textObserAutor observaciones textFirmaAutor"; }
+  .autorizacionTramite input {
+    width: 70%; }
+  .autorizacionTramite textarea {
+    width: 95%;
+    resize: none;
+    height: 4rem;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-style: italic; }
+
+.textAutor {
+  grid-area: textAutor; }
+
+.numRes {
+  grid-area: numRes;
+  text-align: right; }
+
+.fechaAutor {
+  grid-area: fechaAutor; }
+
+.texCodFun {
+  grid-area: texCodFun; }
+
+.codFun {
+  grid-area: codFun;
+  text-align: right; }
+
+.sinTexAutor {
+  grid-area: sinTexAutor; }
+
+.textObserAutor {
+  grid-area: textObserAutor; }
+
+.observaciones {
+  grid-area: observaciones;
+  text-align: right; }
+
+.textFirmaAutor {
+  grid-area: textFirmaAutor;
+  text-align: center; }
+
+/*Visualización Rubro 8: Documentación adjunta*/
+#documentacioAdjunta {
+  text-align: left;
+  width: 98%;
+  resize: none;
+  height: 6rem;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+  font-style: italic; }

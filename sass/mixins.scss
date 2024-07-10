@@ -1,0 +1,205 @@
+/*Input normal y focus*/
+
+@mixin input-border-normal {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  font-style: oblique;
+  font-weight: bold;
+  transition: all 0.15s ease;
+  box-sizing: content-box;
+}
+
+@mixin input-border-focus {
+  border: 2px solid #007bff;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: 0 0 3px #007bff;
+  text-align: center;
+
+}
+
+
+/*Textos centrados*/
+
+@mixin flex-centrado-texto {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+/*Normal y focus de textarea*/
+
+@mixin textarea-border-normal {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+@mixin textarea-border-focus {
+  border: 2px solid #007bff;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: 0 0 3px #007bff;
+  text-align: left;
+
+  
+
+}
+
+
+
+
+/*Textos verticales*/
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.6em;
+}
+
+.textosVerticalesEstabl {
+  display: grid;
+  grid-template-columns: 45% 5% 5% 5% 5% 5% 10% 5% 5% 10%;
+  grid-template-rows: 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: end;
+  text-align: left;
+  justify-items: center;
+  margin-bottom: 0.3rem;
+  margin-top: 0.2rem;
+  grid-template-areas:
+    "cargoMateria turno seccionAnio division horasCat sitRev antiSitRev frenteAlum dias horarioCla";
+}
+
+.cargoMateria {
+  grid-area: cargoMateria;
+  
+}
+
+.turno {
+  grid-area: turno;
+}
+
+.seccionAnio {
+  grid-area: seccionAnio;
+}
+
+.division {
+  grid-area: division;
+}
+
+.horasCat {
+  grid-area: horasCat;
+}
+
+.sitRev {
+  grid-area: sitRev;
+}
+
+.antiSitRev {
+  grid-area: antiSitRev;
+}
+
+.frenteAlum {
+  grid-area: frenteAlum;
+}
+
+.dias {
+  grid-area: dias;
+}
+
+.horarioCla {
+  grid-area: horarioCla;
+}
+
+
+/*Filas de carga de establecimientos y materias*/
+
+.filasCargaDatosEstabl {
+  display: grid;
+  grid-template-columns: 45% 5% 5% 5% 5% 5% 10% 5% 5% 10%;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  grid-template-areas:
+    "cargoMat turno seccionAnio division horasCat sitRev antiSitRev frenteAlum dias horarioCla";
+  width: 100%;
+
+}
+
+.cargoMat {
+  grid-area: cargoMat;
+  input {
+    width: 99%;
+  }
+}
+
+.turno {
+  grid-area: turno;
+  input {
+    width: 90%;
+  }
+}
+
+.seccionAnio {
+  grid-area: seccionAnio;
+  input {
+    width: 90%;
+  }
+}
+
+.division {
+  grid-area: division;
+  input {
+    width: 90%;
+  }
+}
+
+.horasCat {
+  grid-area: horasCat;
+  input {
+    width: 90%;
+  }
+}
+
+.sitRev {
+  grid-area: sitRev;
+  input {
+    width: 90%;
+  }
+}
+
+.antiSitRev {
+  grid-area: antiSitRev;
+  input {
+    width: 95%;
+  }
+
+
+}
+
+.frenteAlum {
+  grid-area: frenteAlum;
+  input {
+    width: 90%;
+  }
+}
+
+.dias {
+  grid-area: dias;
+  input {
+    width: 90%;
+  }
+}
+
+.horarioCla {
+  grid-area: horarioCla;
+  input {
+    width: 98%;
+  }
+}

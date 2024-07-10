@@ -1,0 +1,992 @@
+@import 'reset.scss';
+@import 'mixins.scss';
+@import 'menu.scss';
+@import 'impresiones';
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+form {
+  width: 794px; /* Tamaño A4 en píxeles (ancho) */
+  margin: 0 auto; 
+  padding: 1.5rem;
+  margin-top: 4rem;
+
+  border: 1px solid black;
+  background-image: linear-gradient(to right, rgb(154, 154, 154), rgb(205, 205, 205));;
+}
+
+/*PRIMERA SECCIÓN*/
+/*Se crean dos columnas para la primera sección*/
+.primera {
+  display: grid;
+  /* Activa el modo Grid Layout */
+  grid-template-columns: repeat(2, 397px);
+  /* Define dos columnas de igual ancho */
+}
+
+/*Margen para la columna 1*/
+.columna-1 {
+  margin-right: 10px;
+}
+
+/*Efectos de focus*/
+
+fieldset {
+
+  background-color: #f5f5f5;
+
+  :focus-within label {
+    color: #007bff;
+    font-weight: bolder;
+  }
+
+  input {
+    height: 1rem;
+
+  }
+
+  input {
+    @include input-border-normal;
+    /* Estado normal por defecto */
+  }
+
+  input:focus {
+    @include input-border-focus;
+    background-color: #c5e0fd;
+    /* Estilo al enfocar */
+  }
+
+  textarea {
+    @include textarea-border-normal;
+  }
+
+  textarea:focus {
+    @include textarea-border-focus;
+  }
+
+}
+
+/*Apariencia marcos "fieldsets" del formulario*/
+
+fieldset legend {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  text-align: left;
+  font-size: small;
+  font-style: italic;
+  color: #333;
+  margin: 5px 5px 5px 5px;
+  padding: 4px 4px;
+  background-color: #f5f5f5;
+  margin-top: 0.5rem;
+  border-radius: 3px;
+  border: 2px solid;
+}
+
+/*Primera columna de la primera sección*/
+
+/*Visualización presentación del formulario*/
+
+.tituloFormulario {
+  display: grid;
+  grid-template-columns: 0.2fr 1.6fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  grid-template-areas:
+    "imgForm tituloForm";
+}
+
+.imgForm {
+  grid-area: imgForm;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 90%;
+    max-height: 90%;
+
+  }
+
+}
+
+.tituloForm {
+  grid-area: tituloForm;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 1vw;
+
+  h1 {
+    font-size: 1em;
+    margin-bottom: 3px;
+    font-weight: bold;
+
+  }
+
+  p {
+    font-size: x-small;
+  }
+
+}
+
+
+/*Visualización Rubro 1: Carátula del trámite*/
+
+.caratulaTramite {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0fr 0fr 0fr;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  gap: 2px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "caratulaFila1"
+    "caratulaFila2"
+    "caratulaFila3";
+
+}
+
+.caratulaFila1 {
+  grid-area: caratulaFila1;
+  display: grid;
+  grid-template-columns: 16% 84%;
+  grid-template-rows: 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "textTipoTram tipoTramSelec";
+
+}
+
+.textTipoTram {
+  grid-area: textTipoTram;
+
+}
+
+.tipoTramSelec {
+  grid-area: tipoTramSelec;
+
+  input {
+    width: 98%;
+  }
+
+}
+
+.caratulaFila2 {
+  grid-area: caratulaFila2;
+  display: grid;
+  grid-template-columns: 16% 16% 16% 16% 16% 20%;
+  grid-template-rows: 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "textNumTram tipoTram dto cueTram numTram anioTram";
+
+}
+
+.textNumTram {
+  grid-area: textNumTram;
+  @include flex-centrado-texto;
+
+}
+
+.tipoTram {
+  grid-area: tipoTram;
+
+  input {
+    width: 90%;
+  }
+
+}
+
+.dto {
+  grid-area: dto;
+
+  input {
+    width: 90%;
+  }
+
+}
+
+.cueTram {
+  grid-area: cueTram;
+
+  input {
+    width: 90%;
+  }
+
+}
+
+.numTram {
+  grid-area: numTram;
+
+  input {
+    width: 90%;
+  }
+}
+
+.anioTram {
+  grid-area: anioTram;
+
+  input {
+    width: 90%;
+  }
+
+}
+
+.caratulaFila3 {
+  grid-area: caratulaFila3;
+  display: grid;
+  grid-template-columns: 16% 16% 16% 16% 16% 20%;
+  grid-template-rows: 0fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sinText tipoTex textDto textCue texNumTram textAnioTram";
+  align-items: center;
+  justify-items: stretch;
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.sinText {
+  grid-area: sinText;
+}
+
+.tipoTex {
+  grid-area: tipoTex;
+}
+
+.textDto {
+  grid-area: textDto;
+}
+
+.textCue {
+  grid-area: textCue;
+}
+
+.texNumTram {
+  grid-area: texNumTram;
+}
+
+.textAnioTram {
+  grid-area: textAnioTram;
+}
+
+/*Visualización Rubro 2: datos del solicitante*/
+
+.datosSolicitante {
+  display: grid;
+  grid-template-columns: 0.4fr 1.7fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "textApellidoDatos apellidosDatos"
+    "textNombreDatos nombresDatos"
+    "textDniDatos dniDatos"
+    "textTipoDoc tipoDoc"
+    "textSexDatos sexoDatos";
+}
+
+.textApellidoDatos {
+  grid-area: textApellidoDatos;
+  @include flex-centrado-texto;
+}
+
+.apellidosDatos {
+  grid-area: apellidosDatos;
+
+  input {
+    width: 95%;
+  }
+
+}
+
+.textNombreDatos {
+  grid-area: textNombreDatos;
+  @include flex-centrado-texto;
+}
+
+.nombresDatos {
+  grid-area: nombresDatos;
+
+  input {
+    width: 95%;
+  }
+}
+
+.textDniDatos {
+  grid-area: textDniDatos;
+  @include flex-centrado-texto;
+}
+
+.dniDatos {
+  grid-area: dniDatos;
+
+  input {
+    width: 95%;
+  }
+}
+
+.textTipoDoc {
+  grid-area: textTipoDoc;
+  @include flex-centrado-texto;
+}
+
+.tipoDoc {
+  grid-area: tipoDoc;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+
+  label {
+    margin-right: 0.5rem;
+  }
+}
+
+.textSexDatos {
+  grid-area: textSexDatos;
+  @include flex-centrado-texto;
+}
+
+.sexoDatos {
+  grid-area: sexoDatos;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+
+  label {
+    margin-right: 0.5rem;
+  }
+}
+
+/*Visualización Rubro 3: Datos del establecimiento iniciador*/
+
+.establecimientoIniciador {
+  display: grid;
+  grid-template-columns: 0.4fr 1.6fr;
+  grid-template-rows: 1fr 2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "textEscuelaIni escuelaInic"
+    "textCueInic cueInici";
+  align-content: center;
+  align-items: center;
+  justify-items: stretch;
+
+  input {
+    width: 95%;
+  }
+}
+
+.textEscuelaIni {
+  grid-area: textEscuelaIni;
+  @include flex-centrado-texto;
+}
+
+.escuelaInic {
+  grid-area: escuelaInic;
+}
+
+.textCueInic {
+  grid-area: textCueInic;
+  @include flex-centrado-texto;
+}
+
+.cueInici {
+  grid-area: cueInici;
+}
+
+/*Visualización Rubro 4: datos del trámite*/
+
+.datosTramite {
+  display: grid;
+  grid-template-columns: 0.4fr 1.6fr;
+  grid-template-rows: 1fr 2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "textFechaInic fechaInicio"
+    "texFechaFin fechaFinalizacion";
+  align-content: center;
+  justify-content: space-evenly;
+  justify-items: stretch;
+  align-items: center;
+
+  input {
+    width: 95%;
+  }
+}
+
+.textFechaInic {
+  grid-area: textFechaInic;
+  @include flex-centrado-texto;
+}
+
+.fechaInicio {
+  grid-area: fechaInicio;
+}
+
+.texFechaFin {
+  grid-area: texFechaFin;
+  @include flex-centrado-texto;
+}
+
+.fechaFinalizacion {
+  grid-area: fechaFinalizacion;
+}
+
+/*Visualización Rubro 4.1: designaciones*/
+
+.designaciones {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  grid-template-areas:
+    "textFechaPose fechaPosesion"
+    "textNombreAgtReem agtReemplazado"
+    "textDocReem docAgtReemplazado"
+    "textCompletarDesig textCompletarDesig"
+    "puntajeDesig puntajeDesig";
+
+  input {
+    width: 90%;
+  }
+
+}
+
+.textFechaPose {
+  grid-area: textFechaPose;
+  @include flex-centrado-texto;
+}
+
+.fechaPosesion {
+  grid-area: fechaPosesion;
+}
+
+.textNombreAgtReem {
+  grid-area: textNombreAgtReem;
+  @include flex-centrado-texto;
+}
+
+.agtReemplazado {
+  grid-area: agtReemplazado;
+}
+
+.textDocReem {
+  grid-area: textDocReem;
+  @include flex-centrado-texto;
+}
+
+.docAgtReemplazado {
+  grid-area: docAgtReemplazado;
+}
+
+.textCompletarDesig {
+  grid-area: textCompletarDesig;
+  @include flex-centrado-texto;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.puntajeDesig {
+  grid-area: puntajeDesig;
+  @include flex-centrado-texto;
+
+  input {
+    width: 30%;
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+
+}
+
+
+/*Visualización Rubro 4.2: licencias*/
+
+.licencias {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1fr;
+  gap: 2px 0px;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  justify-items: stretch;
+  grid-template-areas: "textRem remuLic texPorc porcLic"
+    "texCantDias cantDiasLic textObliga ObligLic"
+    "normaLegLic normaLegLic normaLegLic normaLegLic";
+
+}
+
+.textRem {
+  grid-area: textRem;
+  @include flex-centrado-texto;
+}
+
+.remuLic {
+  grid-area: remuLic;
+
+  input {
+    width: 50%;
+  }
+}
+
+.texPorc {
+  grid-area: texPorc;
+  @include flex-centrado-texto;
+}
+
+.porcLic {
+  grid-area: porcLic;
+
+  input {
+    width: 50%;
+  }
+}
+
+.texCantDias {
+  grid-area: texCantDias;
+  @include flex-centrado-texto;
+}
+
+.cantDiasLic {
+  grid-area: cantDiasLic;
+
+  input {
+    width: 50%;
+  }
+}
+
+.textObliga {
+  grid-area: textObliga;
+  @include flex-centrado-texto;
+}
+
+.ObligLic {
+  grid-area: ObligLic;
+
+  input {
+    width: 50%;
+  }
+}
+
+.normaLegLic {
+  grid-area: normaLegLic;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+
+  input {
+    margin-right: 3vw;
+  }
+
+  label {
+    margin-right: 2px;
+  }
+
+  #normaLegal {
+    width: 30%;
+  }
+
+  #articulo {
+    width: 10%;
+  }
+
+  #inciso {
+    width: 10%;
+  }
+
+}
+
+/*Visualización Rubro 4.3: traslados*/
+
+.traslados {
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "textCausaTraslado causaTraslado"
+    "textDesTraslado destinoTraslado";
+
+  textarea {
+    width: 95%;
+    resize: none;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-style: italic;
+  }
+
+}
+
+.textCausaTraslado {
+  grid-area: textCausaTraslado;
+  @include flex-centrado-texto;
+}
+
+.causaTraslado {
+  grid-area: causaTraslado;
+}
+
+.textDesTraslado {
+  grid-area: textDesTraslado;
+  @include flex-centrado-texto;
+}
+
+.destinoTraslado {
+  grid-area: destinoTraslado;
+}
+
+/*Visualización Rubro 4.4: permutas*/
+
+.permutas {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  grid-template-rows: 0.5fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  align-content: center;
+  justify-content: start;
+  align-items: center;
+  justify-items: stretch;
+  grid-template-areas:
+    "textNomPermu nombrePermutante"
+    "textDocPermut docPermutante";
+
+  input {
+    width: 90%;
+  }
+}
+
+.textNomPermu {
+  grid-area: textNomPermu;
+  @include flex-centrado-texto;
+}
+
+.nombrePermutante {
+  grid-area: nombrePermutante;
+}
+
+.textDocPermut {
+  grid-area: textDocPermut;
+  @include flex-centrado-texto;
+}
+
+.docPermutante {
+  grid-area: docPermutante;
+}
+
+/*Visualización Rubro 4.5: renuncia*/
+
+.renuncia {
+  display: grid;
+  grid-template-columns: 0.2fr 1.5fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "textRenuncia causaRenuncia";
+}
+
+.textRenuncia {
+  grid-area: textRenuncia;
+  @include flex-centrado-texto;
+}
+
+.causaRenuncia {
+  grid-area: causaRenuncia;
+
+  input {
+    width: 95%;
+  }
+}
+
+
+/*Segunda, tercera y cuarta sección*/
+
+.segunda,
+.tercera {
+  display: grid;
+  width: 794px;
+
+  fieldset {
+    padding: 1rem;
+  }
+}
+
+
+/*Visualización Rubro 5: Descripción del establecimiento*/
+/*Establecimiento 1ero*/
+.contenedorEstablUno {
+  display: grid;
+  grid-template-columns: 15% 45% 20% 20%;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sinTextEstable textNomNumEsta texCueEstabl textNivelEstabl"
+    "textEstable establecimientoUno cueEstablUno nivelEstablUno";
+  text-align: center;
+  align-items: center;
+}
+
+.sinTextEstable {
+  grid-area: sinTextEstable;
+}
+
+.textNomNumEsta {
+  grid-area: textNomNumEsta;
+}
+
+.textEstable {
+  grid-area: textEstable;
+}
+
+.texCueEstabl {
+  grid-area: texCueEstabl;
+}
+
+.textNivelEstabl {
+  grid-area: textNivelEstabl;
+}
+
+.establecimientoUno {
+  grid-area: establecimientoUno;
+
+  input {
+    width: 100%;
+  }
+
+}
+
+.cueEstablUno {
+  grid-area: cueEstablUno;
+
+  input {
+    width: 60%;
+  }
+
+}
+
+.nivelEstablUno {
+  grid-area: nivelEstablUno;
+
+  input {
+    width: 60%;
+  }
+
+}
+
+/*Establecimiento 2do*/
+
+.contenedorEstablDos {
+  display: grid;
+  grid-template-columns: 0fr 2fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 2px;
+  grid-auto-flow: row;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  grid-template-areas:
+    "textEstabl estableDos cueEstablDos nivelEstablDos";
+}
+
+.textEstabl {
+  grid-area: textEstabl;
+}
+
+.estableDos {
+  grid-area: estableDos;
+
+  input {
+    width: 99%;
+  }
+}
+
+.cueEstablDos {
+  grid-area: cueEstablDos;
+
+  input {
+    width: 70%;
+  }
+}
+
+.nivelEstablDos {
+  grid-area: nivelEstablDos;
+
+  input {
+    width: 70%;
+  }
+}
+
+/*Visualización Rubro 6: Firma responsables*/
+
+
+.firmaResponsables {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-items: center;
+  align-items: center;
+  grid-template-areas:
+    "textoFirma textoFirma textoFirma"
+    "fechaUna fechaDos fechaTres"
+    "textAclaUna textAclaDos textAclaTres";
+
+  p {
+    text-transform: uppercase;
+    line-height: 1.2em;
+  }
+
+}
+
+.textoFirma {
+  grid-area: textoFirma;
+
+}
+
+.fechaUna {
+  grid-area: fechaUna;
+}
+
+.fechaDos {
+  grid-area: fechaDos;
+}
+
+.fechaTres {
+  grid-area: fechaTres;
+}
+
+.textAclaUna {
+  grid-area: textAclaUna;
+  @include flex-centrado-texto;
+  text-align: center;
+}
+
+.textAclaDos {
+  grid-area: textAclaDos;
+  @include flex-centrado-texto;
+  text-align: center;
+
+}
+
+.textAclaTres {
+  grid-area: textAclaTres;
+  @include flex-centrado-texto;
+  text-align: center;
+
+}
+
+/*Visualización Rubro 7: Autorización trámite*/
+
+.autorizacionTramite {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0fr 0fr 1fr;
+  gap: 0px 2px;
+  grid-auto-flow: row;
+  justify-items: stretch;
+  align-items: center;
+  grid-template-areas:
+    "textAutor numRes fechaAutor"
+    "texCodFun codFun sinTexAutor"
+    "textObserAutor observaciones textFirmaAutor";
+
+  input {
+    width: 70%;
+  }
+
+  textarea {
+    width: 95%;
+    resize: none;
+    height: 4rem;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
+    font-style: italic;
+
+  }
+}
+
+.textAutor {
+  grid-area: textAutor;
+}
+
+.numRes {
+  grid-area: numRes;
+  text-align: right;
+}
+
+.fechaAutor {
+  grid-area: fechaAutor;
+}
+
+.texCodFun {
+  grid-area: texCodFun;
+}
+
+.codFun {
+  grid-area: codFun;
+  text-align: right;
+}
+
+.sinTexAutor {
+  grid-area: sinTexAutor;
+}
+
+.textObserAutor {
+  grid-area: textObserAutor;
+}
+
+.observaciones {
+  grid-area: observaciones;
+  text-align: right;
+
+}
+
+.textFirmaAutor {
+  grid-area: textFirmaAutor;
+  text-align: center;
+}
+
+
+/*Visualización Rubro 8: Documentación adjunta*/
+
+#documentacioAdjunta {
+  text-align: left;
+  width: 98%;
+  resize: none;
+  height: 6rem;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: smaller;
+  font-style: italic;
+}

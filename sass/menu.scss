@@ -1,0 +1,170 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, rgb(65, 65, 65), rgb(12, 12, 12));;
+    cursor: pointer;
+    color: white;
+    position: relative; /* Asegura que el menú se posicione relativo al navbar */
+    transition: background-color 0.3s, color 0.3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navbar-toggle {
+    cursor: pointer;
+    display: none; /* Ocultar por defecto en pantallas grandes */
+}
+
+.navbar-menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    top: 100%; /* Alinea el menú justo debajo de la barra de navegación */
+    left: 0;
+    background-image: linear-gradient(to right, rgb(65, 65, 65), rgb(12, 12, 12));;
+    width: 100%;
+
+}
+
+.navbar-menu.active {
+    display: flex; /* Mostrar menú al activarlo */
+}
+
+.navbar-menu a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+}
+
+.navbar-menu a:hover {
+    background-color: white;
+    color: #333;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .navbar {
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 1em;
+    }
+    .navbar-menu {
+        display: none; /* Ocultar menú en pantallas pequeñas */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Alinea el menú justo debajo de la barra de navegación */
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        padding: 1em 1em;
+    }
+
+    .navbar-menu.active {
+        display: flex; /* Mostrar menú al activarlo */
+        font-weight: normal;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .navbar-toggle {
+        display: block; /* Mostrar botón de menú en pantallas pequeñas */
+        
+    }
+
+    /* Ajustar el contenido principal para evitar que se solape con el menú */
+    body {
+        padding-top: 0;
+        margin: 0px; /* Ajustar según el tamaño del menú */
+    }
+
+}
+
+
+/*Acerca de texto*/
+
+#about {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom right, #010e29, #252426);
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    font-family: "Arial", sans-serif;
+
+    h2 {
+        font-size: medium;
+        font-weight: bolder;
+        text-align: center;
+        color: #e3e3e3;
+        padding-bottom: 1rem;
+    }
+    a {
+        color:#e3e3e3;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    p,
+    ul {
+
+        font-size: medium;
+        color: #e3e3e3;
+        line-height: 1.5rem;
+
+        b {
+            font-weight: bolder;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        li::before {
+           
+            padding-left: 4px;
+
+        }
+
+    }
+
+
+}
+
+#saludoFinal {
+    text-align: right;
+}
+
+/*Al fin, el footer*/
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+footer p {
+    margin: 0;
+    font-size: 12px;
+    color: #333;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
