@@ -39,6 +39,8 @@ function formatTime(input) {
     input.value = formattedValue;
 }
 
+//
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
@@ -89,6 +91,126 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Los datos del formulario han sido borrados');
         }
     });
+
+    document.getElementById('descargar').addEventListener('click', async function () {
+        const confirmMessage = 'El PDF se va generar, pero no va a tener una buena resolución. Te recomiendo usar la opción de "Imprimir" y luego "Guardar como PDF". ¿Querés continuar?';
+    
+        // Mostrar un cuadro de confirmación en lugar de un alert
+        const confirmed = confirm(confirmMessage);
+    
+        if (confirmed) {
+            const { jsPDF } = window.jspdf;
+    
+            // Obtener la fecha actual para el nombre del archivo PDF
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
+            const yyyy = today.getFullYear();
+            const formattedDate = `${dd}-${mm}-${yyyy}`;
+    
+            // Definir estilos específicos para la captura
+            const captureStyles = `
+                form, legend, input, textarea, section {
+                    background: transparent !important;
+                    border-color: black !important; /* Asegurar que las líneas de los bordes sean visibles */
+                }
+    
+                .primera {
+                    display: grid;
+                    grid-template-columns: repeat(2, 390px);
+                    justify-content: center;
+                }
+    
+                .segunda, .tercera, .cuarta {
+                    display: grid;
+                    justify-content: center;
+                    margin: auto;
+                }
+    
+                .segunda fieldset, .tercera fieldset { width: 750px; }
+                .cuarta fieldset { width: 760px; }
+    
+                .textAclaUna, .textAclaDos, .textAclaTres {
+                    margin-top: 1rem;
+                }
+            `;
+    
+            // Función para agregar hoja de estilos temporal
+            function addCaptureStyles() {
+                const styleElement = document.createElement('style');
+                styleElement.id = 'capture-styles';
+                styleElement.innerHTML = captureStyles;
+                document.head.appendChild(styleElement);
+            }
+    
+            // Función para eliminar hoja de estilos temporal
+            function removeCaptureStyles() {
+                const styleElement = document.getElementById('capture-styles');
+                if (styleElement) {
+                    document.head.removeChild(styleElement);
+                }
+            }
+    
+            // Función para capturar la sección con dom-to-image
+            async function captureSection(selector) {
+                addCaptureStyles();
+                const section = document.querySelector(selector);
+    
+                // Guardar placeholders originales antes de capturar la sección
+                const inputs = section.querySelectorAll('input');
+                inputs.forEach(input => {
+                    input.setAttribute('data-placeholder', input.placeholder); // Guardar el placeholder original
+                    input.placeholder = ''; // Eliminar placeholder para la captura
+                });
+    
+                const dataUrl = await domtoimage.toPng(section, {
+                    quality: 0.9,
+                    bgcolor: '#FFFFFF',
+                    style: {
+                        transform: 'scale(1)',
+                        transformOrigin: 'top left',
+                    }
+                });
+    
+                // Restaurar placeholders después de la captura
+                inputs.forEach(input => {
+                    input.placeholder = input.getAttribute('data-placeholder'); // Restaurar placeholder original
+                });
+    
+                removeCaptureStyles();
+                return dataUrl;
+            }
+    
+            const pdf = new jsPDF('p', 'pt', 'a4');
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
+    
+            // Capturar imágenes de las secciones específicas
+            const imgDataPrimera = await captureSection('.primera');
+            const imgDataSegunda = await captureSection('.segunda');
+            const imgDataTercera = await captureSection('.tercera');
+            const imgDataCuarta = await captureSection('.cuarta');
+    
+            // Calcular posición vertical para centrar las imágenes
+            const imgHeightHalf = pdfHeight / 2;
+    
+            // Añadir primera página con las dos primeras secciones
+            pdf.addImage(imgDataPrimera, 'PNG', 0, 0, pdfWidth, imgHeightHalf);
+            pdf.addImage(imgDataSegunda, 'PNG', 0, imgHeightHalf, pdfWidth, imgHeightHalf);
+    
+            // Añadir segunda página con las dos últimas secciones
+            pdf.addPage();
+            pdf.addImage(imgDataTercera, 'PNG', 0, 0, pdfWidth, imgHeightHalf);
+            pdf.addImage(imgDataCuarta, 'PNG', 0, imgHeightHalf, pdfWidth, imgHeightHalf);
+    
+            // Guardar el PDF con el nombre incluyendo la fecha
+            const fileName = `FU_${formattedDate}.pdf`;
+            pdf.save(fileName);
+        }
+    });
+    
+
+
 
     const savedData = JSON.parse(localStorage.getItem('formData'));
     if (savedData) {

@@ -406,6 +406,10 @@ footer a:hover {
     /* Tamaño de la página */
     margin: 10mm;
     /* Márgenes para toda la página */ }
+  form, legend, input, textarea, section {
+    background: transparent !important;
+    border-color: black !important;
+    /* Asegurar que las líneas de los bordes sean visibles */ }
   #form,
   #form * {
     visibility: visible; }
@@ -414,9 +418,15 @@ footer a:hover {
     left: 0;
     top: 0;
     width: 210mm;
-    height: 297mm;
+    height: auto;
     border: none;
     margin-top: 0.5rem; }
+  #pagina1 {
+    page-break-after: always;
+    /* Salto de página después de la primera sección */ }
+  #pagina2 {
+    page-break-after: auto;
+    /* Deja que la segunda sección continúe hasta el final */ }
   input::placeholder {
     color: transparent; }
   textarea::placeholder {
@@ -432,9 +442,8 @@ body {
 
 form {
   width: 794px;
-  /* Tamaño A4 en píxeles (ancho) */
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem;
   margin-top: 4rem;
   border: 1px solid black;
   background-image: linear-gradient(to right, #9a9a9a, #cdcdcd); }

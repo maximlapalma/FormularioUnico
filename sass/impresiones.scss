@@ -13,47 +13,54 @@
  /* Estilos específicos para impresión */
 
  @media print {
-     body * {
-         visibility: hidden;
+    body * {
+        visibility: hidden;
+    }
 
-         
-     }
-
-     @page {
+    @page {
         size: A4; /* Tamaño de la página */
         margin: 10mm; /* Márgenes para toda la página */
     }
 
-     #form,
-     #form * {
-         visibility: visible;
-     }
+    form, legend, input, textarea, section {
+        background: transparent !important;
+        border-color: black !important; /* Asegurar que las líneas de los bordes sean visibles */
+    }
 
-     #form {
-         position: absolute;
-         left: 0;
-         top: 0;
-         width: 210mm;
-         height: 297mm;
-         border: none;
-         margin-top: 0.5rem;
+    #form,
+    #form * {
+        visibility: visible;
+    }
 
-     }
+    #form {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 210mm;
+        height: auto;
+        border: none;
+        margin-top: 0.5rem;
+    }
 
+    #pagina1 {
+        page-break-after: always; /* Salto de página después de la primera sección */
+    }
 
-     input::placeholder {
-         color: transparent;
-     }
+    #pagina2 {
+        page-break-after: auto; /* Deja que la segunda sección continúe hasta el final */
+    }
 
-     textarea::placeholder {
-         color: transparent;
-     }
+    input::placeholder {
+        color: transparent;
+    }
 
-     input[type="date"]::-webkit-datetime-edit-month-field,
-     input[type="date"]::-webkit-datetime-edit-day-field,
-     input[type="date"]::-webkit-datetime-edit-year-field {
-         color: inherit;
-         /* Restaurar el color del texto para el usuario */
-     }
+    textarea::placeholder {
+        color: transparent;
+    }
 
- }
+    input[type="date"]::-webkit-datetime-edit-month-field,
+    input[type="date"]::-webkit-datetime-edit-day-field,
+    input[type="date"]::-webkit-datetime-edit-year-field {
+        color: inherit; /* Restaurar el color del texto para el usuario */
+    }
+}
