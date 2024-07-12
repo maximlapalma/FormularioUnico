@@ -136,6 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     .textAclaUna, .textAclaDos, .textAclaTres {
                         margin-top: 1rem;
                     }
+                    
+                    legend {
+                        font-size: smaller;
+                        margin: 3px 3px 3px 3px;
+                        padding: 2px 2px; }
                 `;
                 document.head.appendChild(styleElement);
             }
