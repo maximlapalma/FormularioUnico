@@ -108,38 +108,35 @@ document.addEventListener('DOMContentLoaded', () => {
             const yyyy = today.getFullYear();
             const formattedDate = `${dd}-${mm}-${yyyy}`;
     
-            // Definir estilos específicos para la captura
-            const captureStyles = `
-                form, legend, input, textarea, section {
-                    background: transparent !important;
-                    border-color: black !important; /* Asegurar que las líneas de los bordes sean visibles */
-                }
-    
-                .primera {
-                    display: grid;
-                    grid-template-columns: repeat(2, 390px);
-                    justify-content: center;
-                }
-    
-                .segunda, .tercera, .cuarta {
-                    display: grid;
-                    justify-content: center;
-                    margin: auto;
-                }
-    
-                .segunda fieldset, .tercera fieldset { width: 750px; }
-                .cuarta fieldset { width: 760px; }
-    
-                .textAclaUna, .textAclaDos, .textAclaTres {
-                    margin-top: 1rem;
-                }
-            `;
-    
             // Función para agregar hoja de estilos temporal
             function addCaptureStyles() {
                 const styleElement = document.createElement('style');
                 styleElement.id = 'capture-styles';
-                styleElement.innerHTML = captureStyles;
+                styleElement.innerHTML = `
+                    form, legend, input, textarea, section {
+                        background: transparent !important;
+                        border-color: black !important; /* Asegurar que las líneas de los bordes sean visibles */
+                    }
+    
+                    .primera {
+                        display: grid;
+                        grid-template-columns: repeat(2, 390px);
+                        justify-content: center;
+                    }
+    
+                    .segunda, .tercera, .cuarta {
+                        display: grid;
+                        justify-content: center;
+                        margin: auto;
+                    }
+    
+                    .segunda fieldset, .tercera fieldset { width: 750px; }
+                    .cuarta fieldset { width: 760px; }
+    
+                    .textAclaUna, .textAclaDos, .textAclaTres {
+                        margin-top: 1rem;
+                    }
+                `;
                 document.head.appendChild(styleElement);
             }
     
@@ -181,6 +178,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 return dataUrl;
             }
     
+            // Función para mostrar el formulario y ocultar la sección "acerca de"
+            function mostrarFormulario() {
+                document.getElementById('form').style.display = 'block';
+                document.getElementById('acerca').style.display = 'none';
+            }
+    
+            // Función para ocultar el formulario y mostrar la sección "acerca de"
+            function ocultarFormulario() {
+                document.getElementById('form').style.display = 'none';
+                document.getElementById('acerca').style.display = 'block';
+            }
+    
+            // Mostrar el formulario antes de la captura
+            mostrarFormulario();
+    
             const pdf = new jsPDF('p', 'pt', 'a4');
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = pdf.internal.pageSize.getHeight();
@@ -206,6 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // Guardar el PDF con el nombre incluyendo la fecha
             const fileName = `FU_${formattedDate}.pdf`;
             pdf.save(fileName);
+    
+            // Ocultar el formulario y mostrar la sección "acerca de" después de la captura
+            ocultarFormulario();
         }
     });
     
