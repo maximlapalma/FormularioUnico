@@ -39,7 +39,41 @@ function formatTime(input) {
     input.value = formattedValue;
 }
 
-//
+//Formato para la antigüedad... Esto fue un verdadero clavo
+
+//Formato antigüedad
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('input[id^="ant"]');
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            formatAntiquityInput(this);
+        });
+        input.addEventListener('blur', function() {
+            formatAntiquityInput(this, true);
+        });
+    });
+});
+
+function formatAntiquityInput(input, isBlur = false) {
+    let value = input.value.replace(/[^0-9]/g, '');
+    let formattedValue = '';
+
+    if (value.length > 0) {
+        if (value.length <= 2) {
+            formattedValue = value;
+            if (isBlur && value.length === 2) {
+                formattedValue += 'A';
+            }
+        } else {
+            formattedValue = value.substr(0, 2) + 'A, ' + value.substr(2);
+            if (isBlur && value.length > 2) {
+                formattedValue += 'M';
+            }
+        }
+    }
+
+    input.value = formattedValue;
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
