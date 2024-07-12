@@ -323,7 +323,11 @@ p {
   body {
     padding-top: 0;
     margin: 0px;
-    /* Ajustar según el tamaño del menú */ } }
+    /* Ajustar según el tamaño del menú */ }
+  fieldset legend {
+    font-size: smaller;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px; } }
 
 /*Acerca de texto*/
 #about {
@@ -559,7 +563,9 @@ fieldset legend {
   grid-auto-rows: 1fr;
   gap: 2px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "caratulaFila1" "caratulaFila2" "caratulaFila3"; }
+  grid-template-areas: "caratulaFila1"
+ "caratulaFila2"
+ "caratulaFila3"; }
 
 .caratulaFila1 {
   grid-area: caratulaFila1;
@@ -656,7 +662,11 @@ fieldset legend {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "textApellidoDatos apellidosDatos" "textNombreDatos nombresDatos" "textDniDatos dniDatos" "textTipoDoc tipoDoc" "textSexDatos sexoDatos"; }
+  grid-template-areas: "textApellidoDatos apellidosDatos"
+ "textNombreDatos nombresDatos"
+ "textDniDatos dniDatos"
+ "textTipoDoc tipoDoc"
+ "textSexDatos sexoDatos"; }
 
 .textApellidoDatos {
   grid-area: textApellidoDatos;
@@ -732,7 +742,8 @@ fieldset legend {
   grid-template-rows: 1fr 2fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "textEscuelaIni escuelaInic" "textCueInic cueInici";
+  grid-template-areas: "textEscuelaIni escuelaInic"
+ "textCueInic cueInici";
   align-content: center;
   align-items: center;
   justify-items: stretch; }
@@ -764,7 +775,8 @@ fieldset legend {
   grid-template-rows: 1fr 2fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "textFechaInic fechaInicio" "texFechaFin fechaFinalizacion";
+  grid-template-areas: "textFechaInic fechaInicio"
+ "texFechaFin fechaFinalizacion";
   align-content: center;
   justify-content: space-evenly;
   justify-items: stretch;
@@ -798,7 +810,11 @@ fieldset legend {
   gap: 0px 0px;
   grid-auto-flow: row;
   align-items: center;
-  grid-template-areas: "textFechaPose fechaPosesion" "textNombreAgtReem agtReemplazado" "textDocReem docAgtReemplazado" "textCompletarDesig textCompletarDesig" "puntajeDesig puntajeDesig"; }
+  grid-template-areas: "textFechaPose fechaPosesion"
+ "textNombreAgtReem agtReemplazado"
+ "textDocReem docAgtReemplazado"
+ "textCompletarDesig textCompletarDesig"
+ "puntajeDesig puntajeDesig"; }
   .designaciones input {
     width: 90%; }
 
@@ -858,7 +874,9 @@ fieldset legend {
   justify-content: center;
   align-content: center;
   justify-items: stretch;
-  grid-template-areas: "textRem remuLic texPorc porcLic" "texCantDias cantDiasLic textObliga ObligLic" "normaLegLic normaLegLic normaLegLic normaLegLic"; }
+  grid-template-areas: "textRem remuLic texPorc porcLic"
+ "texCantDias cantDiasLic textObliga ObligLic"
+ "normaLegLic normaLegLic normaLegLic normaLegLic"; }
 
 .textRem {
   grid-area: textRem;
@@ -928,7 +946,8 @@ fieldset legend {
   grid-template-rows: 0.5fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "textCausaTraslado causaTraslado" "textDesTraslado destinoTraslado"; }
+  grid-template-areas: "textCausaTraslado causaTraslado"
+ "textDesTraslado destinoTraslado"; }
   .traslados textarea {
     width: 95%;
     resize: none;
@@ -966,7 +985,8 @@ fieldset legend {
   justify-content: start;
   align-items: center;
   justify-items: stretch;
-  grid-template-areas: "textNomPermu nombrePermutante" "textDocPermut docPermutante"; }
+  grid-template-areas: "textNomPermu nombrePermutante"
+ "textDocPermut docPermutante"; }
   .permutas input {
     width: 90%; }
 
@@ -1025,7 +1045,8 @@ fieldset legend {
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
-  grid-template-areas: "sinTextEstable textNomNumEsta texCueEstabl textNivelEstabl" "textEstable establecimientoUno cueEstablUno nivelEstablUno";
+  grid-template-areas: "sinTextEstable textNomNumEsta texCueEstabl textNivelEstabl"
+ "textEstable establecimientoUno cueEstablUno nivelEstablUno";
   text-align: center;
   align-items: center; }
 
@@ -1098,7 +1119,9 @@ fieldset legend {
   grid-auto-flow: row;
   justify-items: center;
   align-items: center;
-  grid-template-areas: "textoFirma textoFirma textoFirma" "fechaUna fechaDos fechaTres" "textAclaUna textAclaDos textAclaTres"; }
+  grid-template-areas: "textoFirma textoFirma textoFirma"
+ "fechaUna fechaDos fechaTres"
+ "textAclaUna textAclaDos textAclaTres"; }
   .firmaResponsables p {
     text-transform: uppercase;
     line-height: 1.2em; }
@@ -1145,7 +1168,9 @@ fieldset legend {
   grid-auto-flow: row;
   justify-items: stretch;
   align-items: center;
-  grid-template-areas: "textAutor numRes fechaAutor" "texCodFun codFun sinTexAutor" "textObserAutor observaciones textFirmaAutor"; }
+  grid-template-areas: "textAutor numRes fechaAutor"
+ "texCodFun codFun sinTexAutor"
+ "textObserAutor observaciones textFirmaAutor"; }
   .autorizacionTramite input {
     width: 70%; }
   .autorizacionTramite textarea {
