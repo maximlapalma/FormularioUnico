@@ -137,10 +137,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         margin-top: 1rem;
                     }
                     
+                   @media (max-width: 768px) {
                     legend {
-                        font-size: smaller;
-                        margin: 3px 3px 3px 3px;
-                        padding: 2px 2px; }
+                        white-space: nowrap;
+                        font-size: x-small; /* Ajustar el tamaño de la fuente para móvil */
+                    }
                 `;
                 document.head.appendChild(styleElement);
             }
