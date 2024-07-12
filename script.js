@@ -81,19 +81,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('guardar').addEventListener('click', () => {
         const formData = gatherFormData();
         localStorage.setItem('formData', JSON.stringify(formData));
-        alert('Los datos se guardaron en tu navegador únicamente');
+        alert('Los datos se guardaron en tu navegador únicamente.');
     });
 
     document.getElementById('limpiar').addEventListener('click', () => {
         if (confirm('¿Estás seguro de que querés limpiar todos los datos del formulario?')) {
             form.reset();
             localStorage.removeItem('formData');
-            alert('Los datos del formulario han sido borrados');
+            alert('Los datos del formulario han sido borrados.');
         }
     });
 
     document.getElementById('descargar').addEventListener('click', async function () {
-        const confirmMessage = 'El PDF se va generar, pero no va a tener una buena resolución. Te recomiendo usar la opción de "Imprimir" y luego "Guardar como PDF". ¿Querés continuar?';
+        const confirmMessage = 'El PDF se va generar, pero no va a tener una buena resolución. Te recomiendo usar la opción de "Imprimir" y luego "Guardar como PDF". ¿Querés continuar? (Demora unos segundos).';
     
         // Mostrar un cuadro de confirmación en lugar de un alert
         const confirmed = confirm(confirmMessage);
