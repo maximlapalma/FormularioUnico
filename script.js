@@ -1,3 +1,10 @@
+// Inicializar el polyfill para datalist
+        window.onload = function() {
+            if (typeof window.datalist !== 'undefined') {
+                window.datalist();
+            }
+        };
+
 //Menú
 
 function toggleMenu() {
