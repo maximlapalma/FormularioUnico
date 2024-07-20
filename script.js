@@ -1,15 +1,61 @@
-// Inicializar el polyfill para datalist
-        window.onload = function() {
-            if (typeof window.datalist !== 'undefined') {
-                window.datalist();
-            }
-        };
-
 //Menú
 
 function toggleMenu() {
     var menu = document.getElementById("navbarMenu");
+    var menuIcon = document.getElementById("menuIcon");
+    var closeIcon = document.getElementById("closeIcon");
+
     menu.classList.toggle("active");
+
+    if (menu.classList.contains("active")) {
+        menuIcon.style.display = "none";
+        closeIcon.style.display = "block";
+    } else {
+        menuIcon.style.display = "block";
+        closeIcon.style.display = "none";
+    }
+}
+
+// Función para crear y mostrar el tooltip
+function showTooltip(input) {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.innerText = input.title;
+    document.body.appendChild(tooltip);
+
+    const rect = input.getBoundingClientRect();
+    tooltip.style.top = `${rect.bottom + window.scrollY}px`;
+    tooltip.style.left = `${rect.left + window.scrollX + (input.offsetWidth / 2)}px`;
+    tooltip.style.transform = 'translateX(-50%)';
+    tooltip.style.display = 'block'; // Mostrar el tooltip
+
+    // Evento para ocultar el tooltip al empezar a escribir
+    input.addEventListener('input', function () {
+        tooltip.remove(); // Eliminar el tooltip
+    });
+
+    // Guardar el tooltip en el input para poder eliminarlo después
+    input.tooltipElement = tooltip;
+}
+
+// Seleccionar todos los inputs con atributo title
+const inputs = document.querySelectorAll('input[title]');
+
+// Verificar si el dispositivo es móvil
+const isMobile = window.matchMedia("(max-width: 768px)").matches; // Ajusta el ancho según tus necesidades
+
+if (isMobile) {
+    inputs.forEach(input => {
+        input.addEventListener('focus', function () {
+            showTooltip(input);
+        });
+
+        input.addEventListener('blur', function () {
+            if (input.tooltipElement) {
+                input.tooltipElement.remove(); // Eliminar el tooltip si el input pierde el foco
+            }
+        });
+    });
 }
 
 
@@ -46,16 +92,14 @@ function formatTime(input) {
     input.value = formattedValue;
 }
 
-//Formato para la antigüedad... Esto fue un verdadero clavo
-
 //Formato antigüedad
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const inputs = document.querySelectorAll('input[id^="ant"]');
     inputs.forEach(input => {
-        input.addEventListener('input', function() {
+        input.addEventListener('input', function () {
             formatAntiquityInput(this);
         });
-        input.addEventListener('blur', function() {
+        input.addEventListener('blur', function () {
             formatAntiquityInput(this, true);
         });
     });
@@ -81,6 +125,32 @@ function formatAntiquityInput(input, isBlur = false) {
 
     input.value = formattedValue;
 }
+
+//Convertir en mayúsuculas "data-uppercase" y "data-capitalize"
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Convertir todo el texto a mayúsculas
+    const uppercaseInputs = document.querySelectorAll('input[data-uppercase]');
+    uppercaseInputs.forEach(input => {
+        input.addEventListener('input', function () {
+            this.value = this.value.toUpperCase();
+        });
+    });
+
+    // Capitalizar la primera letra de cada palabra y convertir el resto a minúsculas
+    const capitalizeInputs = document.querySelectorAll('input[data-capitalize]');
+    capitalizeInputs.forEach(input => {
+        input.addEventListener('input', function () {
+            this.value = this.value
+                .toLowerCase()
+                .replace(/\b\w/g, function (match) {
+                    return match.toUpperCase();
+                });
+        });
+    });
+});
+
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -134,143 +204,106 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('descargar').addEventListener('click', async function () {
-        const confirmMessage = 'El PDF se va generar, pero no va a tener una buena resolución. Te recomiendo usar la opción de "Imprimir" y luego "Guardar como PDF". ¿Querés continuar? (Demora unos segundos).';
-    
-        // Mostrar un cuadro de confirmación en lugar de un alert
+        const confirmMessage = 'El PDF se va a generar, pero no va a tener una buena resolución. Te recomiendo usar la opción de "Imprimir" y luego "Guardar como PDF". ¿Querés continuar? (Demora unos segundos en generarse el PDF).';
+
         const confirmed = confirm(confirmMessage);
-    
+
         if (confirmed) {
             const { jsPDF } = window.jspdf;
-    
+
             // Obtener la fecha actual para el nombre del archivo PDF
             const today = new Date();
             const dd = String(today.getDate()).padStart(2, '0');
             const mm = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
             const yyyy = today.getFullYear();
             const formattedDate = `${dd}-${mm}-${yyyy}`;
-    
-            // Función para agregar hoja de estilos temporal
+
             function addCaptureStyles() {
                 const styleElement = document.createElement('style');
                 styleElement.id = 'capture-styles';
                 styleElement.innerHTML = `
                     form, legend, input, textarea, section {
                         background: transparent !important;
-                        border-color: black !important; /* Asegurar que las líneas de los bordes sean visibles */
+                        border-color: black !important;
                     }
-    
-                    .primera {
-                        display: grid;
-                        grid-template-columns: repeat(2, 390px);
-                        justify-content: center;
-                    }
-    
-                    .segunda, .tercera, .cuarta {
-                        display: grid;
-                        justify-content: center;
-                        margin: auto;
-                    }
-    
+                    .primera { display: grid; grid-template-columns: repeat(2, 390px); justify-content: center; }
+                    .segunda, .tercera, .cuarta { display: grid; justify-content: center; margin: auto; }
                     .segunda fieldset, .tercera fieldset { width: 750px; }
                     .cuarta fieldset { width: 760px; }
-    
-                    .textAclaUna, .textAclaDos, .textAclaTres {
-                        margin-top: 1rem;
-                    }
-                    
-                   @media (max-width: 768px) {
-                    legend {
-                        white-space: nowrap;
-                        font-size: x-small; /* Ajustar el tamaño de la fuente para móvil */
-                    }
+                    .textAclaUna, .textAclaDos, .textAclaTres { margin-top: 1rem; }
+                    @media (max-width: 768px) { legend { white-space: nowrap; font-size: smaller; } }
                 `;
                 document.head.appendChild(styleElement);
             }
-    
-            // Función para eliminar hoja de estilos temporal
+
             function removeCaptureStyles() {
                 const styleElement = document.getElementById('capture-styles');
                 if (styleElement) {
                     document.head.removeChild(styleElement);
                 }
             }
-    
-            // Función para capturar la sección con dom-to-image
+
             async function captureSection(selector) {
                 addCaptureStyles();
                 const section = document.querySelector(selector);
-    
-                // Guardar placeholders originales antes de capturar la sección
+
                 const inputs = section.querySelectorAll('input');
                 inputs.forEach(input => {
-                    input.setAttribute('data-placeholder', input.placeholder); // Guardar el placeholder original
-                    input.placeholder = ''; // Eliminar placeholder para la captura
+                    input.setAttribute('data-placeholder', input.placeholder);
+                    input.placeholder = '';
                 });
-    
+
                 const dataUrl = await domtoimage.toPng(section, {
                     quality: 0.9,
                     bgcolor: '#FFFFFF',
-                    style: {
-                        transform: 'scale(1)',
-                        transformOrigin: 'top left',
-                    }
+                    style: { transform: 'scale(1)', transformOrigin: 'top left' }
                 });
-    
-                // Restaurar placeholders después de la captura
+
                 inputs.forEach(input => {
-                    input.placeholder = input.getAttribute('data-placeholder'); // Restaurar placeholder original
+                    input.placeholder = input.getAttribute('data-placeholder');
                 });
-    
+
                 removeCaptureStyles();
                 return dataUrl;
             }
-    
-            // Función para mostrar el formulario y ocultar la sección "acerca de"
+
             function mostrarFormulario() {
                 document.getElementById('form').style.display = 'block';
                 document.getElementById('acerca').style.display = 'none';
             }
-    
-            // Función para ocultar el formulario y mostrar la sección "acerca de"
+
             function ocultarFormulario() {
                 document.getElementById('form').style.display = 'none';
                 document.getElementById('acerca').style.display = 'block';
             }
-    
-            // Mostrar el formulario antes de la captura
+
             mostrarFormulario();
-    
+
             const pdf = new jsPDF('p', 'pt', 'a4');
             const pdfWidth = pdf.internal.pageSize.getWidth();
             const pdfHeight = pdf.internal.pageSize.getHeight();
-    
-            // Capturar imágenes de las secciones específicas
+
             const imgDataPrimera = await captureSection('.primera');
             const imgDataSegunda = await captureSection('.segunda');
             const imgDataTercera = await captureSection('.tercera');
             const imgDataCuarta = await captureSection('.cuarta');
-    
-            // Calcular posición vertical para centrar las imágenes
+
             const imgHeightHalf = pdfHeight / 2;
-    
-            // Añadir primera página con las dos primeras secciones
+
             pdf.addImage(imgDataPrimera, 'PNG', 0, 0, pdfWidth, imgHeightHalf);
             pdf.addImage(imgDataSegunda, 'PNG', 0, imgHeightHalf, pdfWidth, imgHeightHalf);
-    
-            // Añadir segunda página con las dos últimas secciones
             pdf.addPage();
             pdf.addImage(imgDataTercera, 'PNG', 0, 0, pdfWidth, imgHeightHalf);
             pdf.addImage(imgDataCuarta, 'PNG', 0, imgHeightHalf, pdfWidth, imgHeightHalf);
-    
-            // Guardar el PDF con el nombre incluyendo la fecha
+
             const fileName = `FU_${formattedDate}.pdf`;
             pdf.save(fileName);
-    
-            // Ocultar el formulario y mostrar la sección "acerca de" después de la captura
-            ocultarFormulario();
+
+            // Restaurar el estado del formulario después de la descarga
+            mostrarFormulario();
         }
     });
-    
+
 
 
 
