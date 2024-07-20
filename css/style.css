@@ -294,6 +294,9 @@ p {
   background-color: white;
   color: #333; }
 
+.menu-icon {
+  font-size: 1.5rem;
+  /* Ajusta el tamaño del ícono según sea necesario */ }
 
 /*Acerca de texto*/
 #about {
@@ -326,7 +329,6 @@ p {
     #about p li,
     #about ul li {
       margin-bottom: 10px;
-      position: relative;
       padding-left: 35px; }
     #about p li::before,
     #about ul li::before {
@@ -334,28 +336,6 @@ p {
 
 #saludoFinal {
   text-align: right; }
-
-/*Al fin, el footer*/
-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #f0f0f0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #ccc; }
-
-footer p {
-  margin: 0;
-  font-size: 12px;
-  color: #333; }
-
-footer a {
-  color: #333;
-  text-decoration: none; }
-
-footer a:hover {
-  text-decoration: underline; }
 
 /* Estilo para el formulario */
 #print-form {
@@ -455,6 +435,7 @@ fieldset {
     outline: none;
     box-shadow: 0 0 3px #007bff;
     text-align: center;
+    color: #007bff;
     background-color: #c5e0fd;
     /* Estilo al enfocar */ }
   fieldset textarea {
@@ -1093,7 +1074,11 @@ fieldset legend {
     line-height: 1.2em; }
 
 .textoFirma {
-  grid-area: textoFirma; }
+  grid-area: textoFirma;
+  text-transform: uppercase;
+  line-height: 1.2em; }
+  .textoFirma p {
+    font-size: 0.6rem; }
 
 .fechaUna {
   grid-area: fechaUna; }
@@ -1189,7 +1174,11 @@ fieldset legend {
   font-family: Arial, Helvetica, sans-serif;
   font-size: smaller;
   font-style: italic; }
-/*Video en acerca de...*/
+
+input[data-uppercase] {
+  text-transform: uppercase;
+  /* Convierte el texto a mayúsculas */ }
+
 .video-container {
   position: relative;
   display: flex;
@@ -1209,7 +1198,49 @@ fieldset legend {
   width: 100%;
   height: 100%;
   border: 0; }
-/*MEDIA QUERY*/
+
+/*Al fin, el footer*/
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  /* Incluye el padding y el border en el ancho total */ }
+
+footer p {
+  margin: 0;
+  font-size: 12px;
+  color: #333; }
+
+footer a {
+  color: #333;
+  text-decoration: none; }
+
+footer a:hover {
+  text-decoration: underline; }
+
+/*Para los toolptip*/
+.tooltip {
+  position: absolute;
+  background-color: #007bff;
+  border: 1px dotted #000000;
+  font-weight: bold;
+  color: #f2f2f2;
+  margin-top: 2px;
+  padding: 3px;
+  font-size: 10px;
+  z-index: 1000;
+  white-space: nowrap;
+  /* Evita que el texto se divida en varias líneas */
+  display: none;
+  /* Ocultar por defecto */ }
+
 @media only screen and (max-width: 768px) {
   .navbar {
     align-items: flex-start;
