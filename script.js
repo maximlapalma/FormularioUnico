@@ -137,19 +137,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Capitalizar la primera letra de cada palabra y convertir el resto a minúsculas
+    // Lista de preposiciones en español
+    const preposiciones = [
+        "a", "ante", "bajo", "cabe", "con", "contra", "de", "desde", "durante", "en", "entre", "hacia", "hasta", 
+        "mediante", "para", "por", "según", "sin", "so", "sobre", "tras", "versus", "via", "y"
+    ];
+
+    // Capitalizar la primera letra de cada palabra y convertir el resto a minúsculas,
+    // exceptuando las preposiciones
     const capitalizeInputs = document.querySelectorAll('input[data-capitalize]');
     capitalizeInputs.forEach(input => {
         input.addEventListener('input', function () {
-            this.value = this.value
-                .toLowerCase()
-                .replace(/(^\w|\s\w)/g, function (match) {
-                    return match.toUpperCase();
-                });
+            let words = this.value.toLowerCase().split(' ');
+
+            this.value = words.map((word, index) => {
+                if (index !== 0 && preposiciones.includes(word)) {
+                    return word;
+                } else {
+                    return word.charAt(0).toUpperCase() + word.slice(1);
+                }
+            }).join(' ');
         });
     });
 });
-
 
 // Funciones para mostrar y ocultar secciones del formulario
 
