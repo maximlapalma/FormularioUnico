@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
         input.addEventListener('input', function () {
             this.value = this.value
                 .toLowerCase()
-                .replace(/\b\w/g, function (match) {
+                .replace(/(^\w|\s\w)/g, function (match) {
                     return match.toUpperCase();
                 });
         });
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
+// Funciones para mostrar y ocultar secciones del formulario
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form');
@@ -303,8 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarFormulario();
         }
     });
-
-
 
 
     const savedData = JSON.parse(localStorage.getItem('formData'));
