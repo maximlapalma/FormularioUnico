@@ -236,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         background: transparent !important;
                         border-color: black !important;
                     }
+                    h1 {font-size: small;}
                     .primera { display: grid; grid-template-columns: repeat(2, 390px); justify-content: center; }
                     .segunda, .tercera, .cuarta { display: grid; justify-content: center; margin: auto; }
                     .segunda fieldset, .tercera fieldset { width: 750px; }
