@@ -16,6 +16,29 @@ function toggleMenu() {
     }
 }
 
+//Fechas
+document.querySelectorAll(".fecha-input").forEach(input => {
+    input.addEventListener("beforeinput", function (e) {
+        if (!/[0-9]/.test(e.data) && e.data !== null) {
+            e.preventDefault();
+            alert("Solo se permiten números para las fechas (12/01/2024)");
+        }
+    });
+
+    input.addEventListener("input", function (e) {
+        let value = e.target.value.replace(/\D/g, ""); // Elimina cualquier carácter no numérico
+        
+        if (value.length > 2) {
+            value = value.substring(0, 2) + "/" + value.substring(2);
+        }
+        if (value.length > 5) {
+            value = value.substring(0, 5) + "/" + value.substring(5);
+        }
+        
+        e.target.value = value.substring(0, 10); // Limita la longitud máxima
+    });
+});
+
 // Función para crear y mostrar el tooltip
 function showTooltip(input) {
     const tooltip = document.createElement('div');
