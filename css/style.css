@@ -1241,6 +1241,19 @@ footer a:hover {
   display: none;
   /* Ocultar por defecto */ }
 
+/* Estilo para inputs de fechas vacíos (todos los navegadores) */
+.fecha-input {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-small;
+  font-style: oblique;
+  font-weight: bold;
+  transition: all 0.15s ease;
+  box-sizing: content-box;
+}
+
 @media only screen and (max-width: 768px) {
   .navbar {
     align-items: flex-start;
