@@ -214,10 +214,26 @@
                             <legend>Rubro 4: Datos del trámite</legend>
                             <section class="datosTramite">
                                 <div class="textFechaInic"><label for="fechaInicio">FECHA DE INICIO:</label></div>
-                                <div class="fechaInicio"><input type="date" id="fechaInicio"></div>
+                                <div class="fechaInicio">
+                                    <input type="text" 
+                                    id="fechaInicio" 
+                                    class="fecha-input" 
+                                    placeholder="dd/mm/aaaa"
+                                    maxlength="10"
+                                    title="Solo ingresá los números">
+                                
+                                </div>
                                 <div class="texFechaFin"><label for="fechaFinalizacion">FECHA DE FINALIZACIÓN:</label>
                                 </div>
-                                <div class="fechaFinalizacion"><input type="date" id="fechaFinalizacion"></div>
+                                <div class="fechaFinalizacion">
+                                    <input type="text" 
+                                    id="fechaFinalizacion" 
+                                    class="fecha-input" 
+                                    placeholder="dd/mm/aaaa"
+                                    maxlength="10"
+                                    title="Solo ingresá los números">
+                                
+                                </div>
                             </section>
                         </fieldset>
                     </div>
@@ -229,7 +245,15 @@
                                 <div class="textFechaPose"><label for="fechaTomaPosesion">FECHA DE TOMA DE
                                         POSESIÓN:</label>
                                 </div>
-                                <div class="fechaPosesion"><input type="date" id="fechaTomaPosesion"></div>
+                                <div class="fechaPosesion">
+                                    <input type="text" 
+                                    id="fechaTomaPosesion" 
+                                    class="fecha-input" 
+                                    placeholder="dd/mm/aaaa"
+                                    maxlength="10"
+                                    title="Solo ingresá los números">
+                                
+                                </div>
                                 <div class="textNombreAgtReem"><label for="apellidoNombreAgenteReemplazado">APELLIDO Y
                                         NOMBRE AGT. REEMPLAZADO:</label></div>
                                 <div class="agtReemplazado"><input type="text" data-capitalize
@@ -1930,13 +1954,28 @@
                                     indica la normativa vigente, sobre los intervinientes en el trámite.</p>
                             </div>
                             <div class="fechaUna"> <label for="fechaSolicitante">FECHA:</label>
-                                <input type="date" id="fechaSolicitante">
+                                <input type="text" 
+                                id="fechaSolicitante" 
+                                class="fecha-input" 
+                                placeholder="dd/mm/aaaa"
+                                maxlength="10".
+                                title="Solo ingresá los números">
                             </div>
                             <div class="fechaDos"> <label for="fechaDirector">FECHA:</label>
-                                <input type="date" id="fechaDirector">
+                                <input type="text" 
+                                id="fechaDirector" 
+                                class="fecha-input" 
+                                placeholder="dd/mm/aaaa"
+                                maxlength="10"
+                                title="Solo ingresá los números">
                             </div>
                             <div class="fechaTres"> <label for="fechaResponsable">FECHA:</label>
-                                <input type="date" id="fechaResponsable">
+                                <input type="text" 
+                                id="fechaResponsable" 
+                                class="fecha-input" 
+                                placeholder="dd/mm/aaaa"
+                                maxlength="10"
+                                title="Solo ingresá los números">
                             </div>
                             <div class="textAclaUna">
                                 <p>FIRMA Y ACLARACION DEL SOLICITANTE</p>
@@ -2017,7 +2056,8 @@
                     estaría medianamente optimizado para eso. Por ejemplo, para cargar el horario solo deben escribir los números y
                     la página
                     agrega los dos puntos y el guion medio, lo mismo con el porcentaje, tampoco es necesario escribir con mayúsculas o minúsculas, la página formatea todo, entre otras cosas. ¡Exploren!
-                    En las versiones móviles de Chrome y Opera, los días y turnos se mostrarán como opciones rápidas en el teclado del teléfono, así que alcanza con un clic y chau te fuiste. Abajo les dejo un video demostrando cómo funciona en un teléfono con Chrome móvil.</li>
+                    En las versiones móviles de Chrome y Opera, los días y los turnos, por ejemplo, les van a aparecer opciones rápidas en el teclado del
+                    teléfono, con lo que alcanza con cliquear y chau te fuiste. Les dejo un video sobre cómo funciona en un teléfono en Chrome móvil.</li>
                 <li><i class="fa-solid fa-circle-check"></i> Por lo anterior, funciona mejor en una PC y un
                     <strong>navegador actualizado</strong>, nada de Win
                     XP o Internet Explorer como se usan en el CGE.
@@ -2044,21 +2084,21 @@
         </section>
     </main>
 
-<footer>
-    <p>Hecho por Maximiliano Lapalma. Para consultas:
-        <a href="mailto:edicionmaximiliano@gmail.com">edicionmaximiliano@gmail.com</a>
-        <a href="https://github.com/maximlapalma" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.instagram.com/maximlapalma" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/maximlapalma/" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-linkedin"></i>
-        </a>
-    </p>
-</footer>
-
+    <footer>
+        <p>Hecho por Maximiliano Lapalma. Para consultas:
+            <a href="mailto:edicionmaximiliano@gmail.com">edicionmaximiliano@gmail.com</a>
+            <a href="https://github.com/maximlapalma" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/maximlapalma" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/maximlapalma/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </p>
+    </footer>
+    
 
 </body>
 
