@@ -1,3 +1,165 @@
+// Funciones para mostrar y ocultar secciones del formulario
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form');
+    const about = document.getElementById('about');
+
+    document.getElementById('inicio').addEventListener('click', () => {
+        form.style.display = 'block';
+        about.style.display = 'none';
+    });
+
+    document.getElementById('imprimir').addEventListener('click', () => {
+        // Asegurarse de que el formulario esté visible antes de imprimir
+        form.style.display = 'block';
+        about.style.display = 'none';
+
+        // Create a temporary element to hold the form content
+        const printContent = document.createElement('div');
+        printContent.appendChild(form.cloneNode(true)); // Clone the form
+
+        // Hide other content and append the temporary element (as before)
+        const otherContent = document.querySelectorAll('body > *:not(#form)');
+        otherContent.forEach(element => element.style.display = 'none');
+        document.body.appendChild(printContent);
+
+        // Use a timeout to ensure content is settled before printing
+        setTimeout(() => {
+            window.print(); // Print the temporary element with the form
+            document.body.removeChild(printContent); // Remove the temporary element
+            otherContent.forEach(element => element.style.display = ''); // Restore visibility
+        }, 100); // Adjust timeout if necessary
+    });
+
+    document.getElementById('acerca').addEventListener('click', () => {
+        form.style.display = 'none';
+        about.style.display = 'block';
+    });
+
+    document.getElementById('guardar').addEventListener('click', () => {
+        const formData = gatherFormData();
+        localStorage.setItem('formData', JSON.stringify(formData));
+        alert('Los datos se guardaron en tu navegador únicamente.');
+    });
+
+    document.getElementById('limpiar').addEventListener('click', () => {
+        if (confirm('¿Estás seguro de que querés limpiar todos los datos del formulario?')) {
+            form.reset();
+            localStorage.removeItem('formData');
+            alert('Los datos del formulario han sido borrados.');
+        }
+    });
+
+    document.getElementById('descargar').addEventListener('click', async function () {
+        const confirmMessage = 'El PDF se va a generar, pero no va a tener una buena resolución. Te recomiendo usar la opción de "Imprimir" y luego "Guardar como PDF". ¿Querés continuar? (Demora unos segundos en generarse el PDF).';
+
+        const confirmed = confirm(confirmMessage);
+
+        if (confirmed) {
+            const { jsPDF } = window.jspdf;
+
+            // Obtener la fecha actual para el nombre del archivo PDF
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
+            const yyyy = today.getFullYear();
+            const formattedDate = `${dd}-${mm}-${yyyy}`;
+
+            function addCaptureStyles() {
+                const styleElement = document.createElement('style');
+                styleElement.id = 'capture-styles';
+                styleElement.innerHTML = `
+                    form, legend, input, textarea, section {
+                        background: transparent !important;
+                        border-color: black !important;
+                    }
+                    h1 {font-size: small;}
+ 
+                    .primera { display: grid; grid-template-columns: repeat(2, 390px); justify-content: center; }
+                    .segunda, .tercera, .cuarta { display: grid; justify-content: center; margin: auto; }
+                    .segunda fieldset, .tercera fieldset { width: 750px; }
+                    .cuarta fieldset { width: 760px; }
+                    .textAclaUna, .textAclaDos, .textAclaTres { margin-top: 1rem; }
+                    @media (max-width: 768px) { legend { white-space: nowrap; font-size: smaller; } }
+                `;
+                document.head.appendChild(styleElement);
+            }
+
+            function removeCaptureStyles() {
+                const styleElement = document.getElementById('capture-styles');
+                if (styleElement) {
+                    document.head.removeChild(styleElement);
+                }
+            }
+
+            async function captureSection(selector) {
+                addCaptureStyles();
+                const section = document.querySelector(selector);
+
+                const inputs = section.querySelectorAll('input');
+                inputs.forEach(input => {
+                    input.setAttribute('data-placeholder', input.placeholder);
+                    input.placeholder = '';
+                });
+
+                const dataUrl = await domtoimage.toPng(section, {
+                    quality: 0.9,
+                    bgcolor: '#FFFFFF',
+                    style: { transform: 'scale(1)', transformOrigin: 'top left' }
+                });
+
+                inputs.forEach(input => {
+                    input.placeholder = input.getAttribute('data-placeholder');
+                });
+
+                removeCaptureStyles();
+                return dataUrl;
+            }
+
+            function mostrarFormulario() {
+                document.getElementById('form').style.display = 'block';
+                document.getElementById('acerca').style.display = 'none';
+            }
+
+            function ocultarFormulario() {
+                document.getElementById('form').style.display = 'none';
+                document.getElementById('acerca').style.display = 'block';
+            }
+
+            mostrarFormulario();
+
+            const pdf = new jsPDF('p', 'pt', 'a4');
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = pdf.internal.pageSize.getHeight();
+
+            const imgDataPrimera = await captureSection('.primera');
+            const imgDataSegunda = await captureSection('.segunda');
+            const imgDataTercera = await captureSection('.tercera');
+            const imgDataCuarta = await captureSection('.cuarta');
+
+            const imgHeightHalf = pdfHeight / 2;
+
+            pdf.addImage(imgDataPrimera, 'PNG', 0, 0, pdfWidth, imgHeightHalf);
+            pdf.addImage(imgDataSegunda, 'PNG', 0, imgHeightHalf, pdfWidth, imgHeightHalf);
+            pdf.addPage();
+            pdf.addImage(imgDataTercera, 'PNG', 0, 0, pdfWidth, imgHeightHalf);
+            pdf.addImage(imgDataCuarta, 'PNG', 0, imgHeightHalf, pdfWidth, imgHeightHalf);
+
+            const fileName = `FU_${formattedDate}.pdf`;
+            pdf.save(fileName);
+
+            // Restaurar el estado del formulario después de la descarga
+            mostrarFormulario();
+        }
+
+        
+    });
+
+    const savedData = JSON.parse(localStorage.getItem('formData'));
+    if (savedData) {
+        populateFormData(savedData);
+    }
+});
+
 //Menú
 
 function toggleMenu() {
@@ -16,27 +178,65 @@ function toggleMenu() {
     }
 }
 
-//Fechas
-document.querySelectorAll(".fecha-input").forEach(input => {
-    input.addEventListener("beforeinput", function (e) {
-        if (!/[0-9]/.test(e.data) && e.data !== null) {
-            e.preventDefault();
-            alert("Solo se permiten números para las fechas (12/01/2024)");
-        }
-    });
 
-    input.addEventListener("input", function (e) {
-        let value = e.target.value.replace(/\D/g, ""); // Elimina cualquier carácter no numérico
-        
-        if (value.length > 2) {
-            value = value.substring(0, 2) + "/" + value.substring(2);
-        }
-        if (value.length > 5) {
-            value = value.substring(0, 5) + "/" + value.substring(5);
-        }
-        
-        e.target.value = value.substring(0, 10); // Limita la longitud máxima
-    });
+// Fechas
+document.addEventListener('DOMContentLoaded', function() {
+    // Función para manejar el formato de fecha
+    function setupFechaInput(input) {
+        input.addEventListener("keydown", function(e) {
+            const key = e.key;
+            const value = e.target.value;
+
+            // Permitir solo números, barra (/), teclas de navegación y suprimir
+            if (!/[0-9\/]/.test(key) && 
+                key !== "Backspace" && 
+                key !== "Delete" &&
+                key !== "ArrowLeft" && 
+                key !== "ArrowRight" &&
+                key !== "Tab") {
+                e.preventDefault();
+            }
+
+            // Evitar más de dos barras
+            if (key === "/" && (value.split("/").length > 2)) {
+                e.preventDefault();
+            }
+        });
+
+        input.addEventListener("input", function(e) {
+            let value = e.target.value.replace(/\D/g, "");
+            
+            // Formatear automáticamente
+            if (value.length > 2 && value.length <= 4) {
+                value = value.substring(0, 2) + "/" + value.substring(2);
+            } 
+            else if (value.length > 4) {
+                value = value.substring(0, 2) + "/" + value.substring(2, 4) + "/" + value.substring(4, 8);
+            }
+
+            // Limitar a 10 caracteres (dd/mm/aaaa)
+            e.target.value = value.substring(0, 8) === value ? value : value.substring(0, 10);
+        });
+
+        // Validar al perder el foco
+        input.addEventListener("blur", function(e) {
+            const value = e.target.value;
+            const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+            
+            if (value && !dateRegex.test(value)) {
+                alert("Por favor ingresa una fecha válida en formato dd/mm/aaaa");
+                e.target.focus();
+            }
+        });
+    }
+
+    // Aplicar a todos los inputs de fecha
+    const fechaInputs = document.querySelectorAll(".fecha-input");
+    if (fechaInputs.length > 0) {
+        fechaInputs.forEach(setupFechaInput);
+    } else {
+        console.warn("No se encontraron inputs con clase 'fecha-input'");
+    }
 });
 
 // Función para crear y mostrar el tooltip
@@ -184,166 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Funciones para mostrar y ocultar secciones del formulario
 
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form');
-    const about = document.getElementById('about');
-
-    document.getElementById('inicio').addEventListener('click', () => {
-        form.style.display = 'block';
-        about.style.display = 'none';
-    });
-
-    document.getElementById('imprimir').addEventListener('click', () => {
-        // Asegurarse de que el formulario esté visible antes de imprimir
-        form.style.display = 'block';
-        about.style.display = 'none';
-
-        // Create a temporary element to hold the form content
-        const printContent = document.createElement('div');
-        printContent.appendChild(form.cloneNode(true)); // Clone the form
-
-        // Hide other content and append the temporary element (as before)
-        const otherContent = document.querySelectorAll('body > *:not(#form)');
-        otherContent.forEach(element => element.style.display = 'none');
-        document.body.appendChild(printContent);
-
-        // Use a timeout to ensure content is settled before printing
-        setTimeout(() => {
-            window.print(); // Print the temporary element with the form
-            document.body.removeChild(printContent); // Remove the temporary element
-            otherContent.forEach(element => element.style.display = ''); // Restore visibility
-        }, 100); // Adjust timeout if necessary
-    });
-
-    document.getElementById('acerca').addEventListener('click', () => {
-        form.style.display = 'none';
-        about.style.display = 'block';
-    });
-
-    document.getElementById('guardar').addEventListener('click', () => {
-        const formData = gatherFormData();
-        localStorage.setItem('formData', JSON.stringify(formData));
-        alert('Los datos se guardaron en tu navegador únicamente.');
-    });
-
-    document.getElementById('limpiar').addEventListener('click', () => {
-        if (confirm('¿Estás seguro de que querés limpiar todos los datos del formulario?')) {
-            form.reset();
-            localStorage.removeItem('formData');
-            alert('Los datos del formulario han sido borrados.');
-        }
-    });
-
-    document.getElementById('descargar').addEventListener('click', async function () {
-        const confirmMessage = 'El PDF se va a generar, pero no va a tener una buena resolución. Te recomiendo usar la opción de "Imprimir" y luego "Guardar como PDF". ¿Querés continuar? (Demora unos segundos en generarse el PDF).';
-
-        const confirmed = confirm(confirmMessage);
-
-        if (confirmed) {
-            const { jsPDF } = window.jspdf;
-
-            // Obtener la fecha actual para el nombre del archivo PDF
-            const today = new Date();
-            const dd = String(today.getDate()).padStart(2, '0');
-            const mm = String(today.getMonth() + 1).padStart(2, '0'); // Enero es 0!
-            const yyyy = today.getFullYear();
-            const formattedDate = `${dd}-${mm}-${yyyy}`;
-
-            function addCaptureStyles() {
-                const styleElement = document.createElement('style');
-                styleElement.id = 'capture-styles';
-                styleElement.innerHTML = `
-                    form, legend, input, textarea, section {
-                        background: transparent !important;
-                        border-color: black !important;
-                    }
-                    h1 {font-size: small;}
-                    .primera { display: grid; grid-template-columns: repeat(2, 390px); justify-content: center; }
-                    .segunda, .tercera, .cuarta { display: grid; justify-content: center; margin: auto; }
-                    .segunda fieldset, .tercera fieldset { width: 750px; }
-                    .cuarta fieldset { width: 760px; }
-                    .textAclaUna, .textAclaDos, .textAclaTres { margin-top: 1rem; }
-                    @media (max-width: 768px) { legend { white-space: nowrap; font-size: smaller; } }
-                `;
-                document.head.appendChild(styleElement);
-            }
-
-            function removeCaptureStyles() {
-                const styleElement = document.getElementById('capture-styles');
-                if (styleElement) {
-                    document.head.removeChild(styleElement);
-                }
-            }
-
-            async function captureSection(selector) {
-                addCaptureStyles();
-                const section = document.querySelector(selector);
-
-                const inputs = section.querySelectorAll('input');
-                inputs.forEach(input => {
-                    input.setAttribute('data-placeholder', input.placeholder);
-                    input.placeholder = '';
-                });
-
-                const dataUrl = await domtoimage.toPng(section, {
-                    quality: 0.9,
-                    bgcolor: '#FFFFFF',
-                    style: { transform: 'scale(1)', transformOrigin: 'top left' }
-                });
-
-                inputs.forEach(input => {
-                    input.placeholder = input.getAttribute('data-placeholder');
-                });
-
-                removeCaptureStyles();
-                return dataUrl;
-            }
-
-            function mostrarFormulario() {
-                document.getElementById('form').style.display = 'block';
-                document.getElementById('acerca').style.display = 'none';
-            }
-
-            function ocultarFormulario() {
-                document.getElementById('form').style.display = 'none';
-                document.getElementById('acerca').style.display = 'block';
-            }
-
-            mostrarFormulario();
-
-            const pdf = new jsPDF('p', 'pt', 'a4');
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = pdf.internal.pageSize.getHeight();
-
-            const imgDataPrimera = await captureSection('.primera');
-            const imgDataSegunda = await captureSection('.segunda');
-            const imgDataTercera = await captureSection('.tercera');
-            const imgDataCuarta = await captureSection('.cuarta');
-
-            const imgHeightHalf = pdfHeight / 2;
-
-            pdf.addImage(imgDataPrimera, 'PNG', 0, 0, pdfWidth, imgHeightHalf);
-            pdf.addImage(imgDataSegunda, 'PNG', 0, imgHeightHalf, pdfWidth, imgHeightHalf);
-            pdf.addPage();
-            pdf.addImage(imgDataTercera, 'PNG', 0, 0, pdfWidth, imgHeightHalf);
-            pdf.addImage(imgDataCuarta, 'PNG', 0, imgHeightHalf, pdfWidth, imgHeightHalf);
-
-            const fileName = `FU_${formattedDate}.pdf`;
-            pdf.save(fileName);
-
-            // Restaurar el estado del formulario después de la descarga
-            mostrarFormulario();
-        }
-    });
-
-
-    const savedData = JSON.parse(localStorage.getItem('formData'));
-    if (savedData) {
-        populateFormData(savedData);
-    }
-});
 
 
 
