@@ -5,13 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="https://kit.fontawesome.com/1b4e48dfed.js" crossorigin="anonymous"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="script.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+    <script src="script.js"></script>
     <title>Formulario único</title>
 </head>
 
@@ -19,20 +22,20 @@
     <header>
         <nav class="navbar">
             <div class="navbar-toggle" onclick="toggleMenu()">
-                <i class="fa-solid fa-bars menu-icon" id="menuIcon"></i>
-                <i class="fa-solid fa-xmark menu-icon" id="closeIcon" style="display: none;"></i>
+                <i class="material-icons menu-icon" id="menuIcon">menu</i>
+                <i class="material-icons menu-icon" id="closeIcon" style="display: none;">close</i>
             </div>
             <ul class="navbar-menu" id="navbarMenu">
-                <li><a id="inicio"><i class="fa-solid fa-house"></i> Inicio</a></li>
-                <li><a id="imprimir"><i class="fa-solid fa-print"></i> Imprimir</a></li>
-                <li><a id="guardar"><i class="fa-solid fa-floppy-disk"></i> Guardar datos</a></li>
-                <li><a id="limpiar"><i class="fa-solid fa-trash-can"></i> Limpiar</a></li>
-                <li><a id="acerca"><i class="fa-solid fa-circle-info"></i> Acerca de...</a></li>
-                <li><a id="descargar"><i class="fa-solid fa-download"></i> Descargar PDF</a></li>
+                <li><a id="inicio"><i class="material-icons">home</i> Inicio</a></li>
+                <li><a id="imprimir"><i class="material-icons">print</i> Imprimir</a></li>
+                <li><a id="guardar"><i class="material-icons">save</i> Guardar datos</a></li>
+                <li><a id="limpiar"><i class="material-icons">delete</i> Limpiar</a></li>
+                <li><a id="acerca"><i class="material-icons">info</i> Acerca de...</a></li>
+                <li><a id="descargar"><i class="material-icons">file_download</i> Descargar PDF</a></li>
             </ul>
         </nav>
-        
     </header>
+    
 
     <main>
         <form class="container printable" id="form">
@@ -60,9 +63,8 @@
                                     <div class="tipoTramSelec">
                                         <input type="text" id="tipoTramite" data-capitalize name="tipoTramite"
                                             list="itemLic" placeholder="Licencia tipo X"
-                                            pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+"
-                                            title="Escribí el nombre del trámite" inputmode="text" autofocus
-                                            required>
+                                            pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+" title="Escribí el nombre del trámite"
+                                            inputmode="text" autofocus required>
                                         <datalist id="itemLic">
                                             <!-- Trámites Docentes -->
                                             <option value="Licencia tipo A">
@@ -92,8 +94,7 @@
                                     <div class="tipoTram">
                                         <input type="text" id="tipo" data-uppercase maxlength="2" name="tipo"
                                             list="itemTipo" placeholder="DP" pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+"
-                                            title="Formato: LA, LB, LH..." inputmode="text"
-                                            required>
+                                            title="Formato: LA, LB, LH..." inputmode="text" required>
                                         <datalist id="itemTipo">
                                             <option value="DC">
                                             <option value="DL">
@@ -139,13 +140,12 @@
                                     </div>
                                     <div class="cueTram"><input type="text" id="cueTipTram" name="cueTipTram"
                                             minlength="4" maxlength="7" placeholder="1234" pattern="[0-9]{4}"
-                                            inputmode="numeric" title="Formato: 3001234"
-                                            required></div>
+                                            inputmode="numeric" title="Formato: 3001234" required></div>
                                     <div class="numTram"><input type="text" id="numero" name="numero" minlength="4"
                                             maxlength="6" inputmode="numeric"></div>
                                     <div class="anioTram"><input type="text" id="anio" name="anio" minlength="4"
-                                            inputmode="numeric" maxlength="4" placeholder="2020"
-                                            title="Formato: 2024" required></div>
+                                            inputmode="numeric" maxlength="4" placeholder="2020" title="Formato: 2024"
+                                            required></div>
                                 </div>
 
                                 <div class="caratulaFila3">
@@ -167,16 +167,19 @@
                                 <div class="textApellidoDatos"><label for="apellidos">APELLIDOS:</label>
                                 </div>
                                 <div class="apellidosDatos"><input type="text" id="apellidos" data-capitalize
-                                        placeholder="Pérez" pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+" title="La página escribe las mayúsculas y minúsculas" inputmode="text" required>
+                                        placeholder="Pérez" pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+"
+                                        title="La página escribe las mayúsculas y minúsculas" inputmode="text" required>
                                 </div>
                                 <div class="textNombreDatos"><label for="nombres">NOMBRES:</label></div>
                                 <div class="nombresDatos"><input type="text" id="nombres" data-capitalize
-                                        placeholder="Juan" pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+" inputmode="text" title="La página escribe las mayúsculas y minúsculas" required>
+                                        placeholder="Juan" pattern="[A-Za-záéíóúñÁÉÍÓÚÑ\s]+" inputmode="text"
+                                        title="La página escribe las mayúsculas y minúsculas" required>
                                 </div>
                                 <div class="textDniDatos"><label for="numeroDocumento">N° DOC.:</label>
                                 </div>
-                                <div class="dniDatos"><input type="text" id="numeroDocumento" placeholder="22.333.444" title="Solo ingresá los números"
-                                        inputmode="numeric" pattern="[0-9]+" required></div>
+                                <div class="dniDatos"><input type="text" id="numeroDocumento" placeholder="22.333.444"
+                                        title="Solo ingresá los números" inputmode="numeric" pattern="[0-9]+" required>
+                                </div>
                                 <div class="textTipoDoc"><label>TIPO DOC.:</label></div>
                                 <div class="tipoDoc">
                                     <label for="dni">DNI</label>
@@ -201,11 +204,13 @@
                                 <div class="textEscuelaIni"><label for="nombreEstablecimientoInic">NOMBRE y
                                         NÚMERO:</label></div>
                                 <div class="escuelaInic"><input type="text" id="nombreEstablecimientoInic"
-                                        name="nombreEstablecimientoInic" title="La página escribe las mayúsculas y minúsculas" data-capitalize inputmode="text"
-                                        placeholder="Escuela Secundaria N° 1 Pedro Páramo">
+                                        name="nombreEstablecimientoInic"
+                                        title="La página escribe las mayúsculas y minúsculas" data-capitalize
+                                        inputmode="text" placeholder="Escuela Secundaria N° 1 Pedro Páramo">
                                 </div>
                                 <div class="textCueInic"><label for="cueEstablecimientoInic">CUE:</label></div>
-                                <div class="cueInici"><input type="text" id="cueEstablecimientoInic" title="Solo ingresá los números" inputmode="numeric"
+                                <div class="cueInici"><input type="text" id="cueEstablecimientoInic"
+                                        title="Solo ingresá los números" inputmode="numeric"
                                         name="cueEstablecimientoInic" placeholder="300-1234"></div>
                             </section>
                         </fieldset>
@@ -215,24 +220,16 @@
                             <section class="datosTramite">
                                 <div class="textFechaInic"><label for="fechaInicio">FECHA DE INICIO:</label></div>
                                 <div class="fechaInicio">
-                                    <input type="text" 
-                                    id="fechaInicio" 
-                                    class="fecha-input" 
-                                    placeholder="dd/mm/aaaa"
-                                    maxlength="10"
-                                    title="Solo ingresá los números">
-                                
+                                    <input type="text" id="fechaInicio" class="fecha-input" placeholder="dd/mm/aaaa"
+                                        maxlength="10" title="Solo ingresá los números">
+
                                 </div>
                                 <div class="texFechaFin"><label for="fechaFinalizacion">FECHA DE FINALIZACIÓN:</label>
                                 </div>
                                 <div class="fechaFinalizacion">
-                                    <input type="text" 
-                                    id="fechaFinalizacion" 
-                                    class="fecha-input" 
-                                    placeholder="dd/mm/aaaa"
-                                    maxlength="10"
-                                    title="Solo ingresá los números">
-                                
+                                    <input type="text" id="fechaFinalizacion" class="fecha-input"
+                                        placeholder="dd/mm/aaaa" maxlength="10" title="Solo ingresá los números">
+
                                 </div>
                             </section>
                         </fieldset>
@@ -246,13 +243,9 @@
                                         POSESIÓN:</label>
                                 </div>
                                 <div class="fechaPosesion">
-                                    <input type="text" 
-                                    id="fechaTomaPosesion" 
-                                    class="fecha-input" 
-                                    placeholder="dd/mm/aaaa"
-                                    maxlength="10"
-                                    title="Solo ingresá los números">
-                                
+                                    <input type="text" id="fechaTomaPosesion" class="fecha-input"
+                                        placeholder="dd/mm/aaaa" maxlength="10" title="Solo ingresá los números">
+
                                 </div>
                                 <div class="textNombreAgtReem"><label for="apellidoNombreAgenteReemplazado">APELLIDO Y
                                         NOMBRE AGT. REEMPLAZADO:</label></div>
@@ -434,8 +427,7 @@
                                     placeholder="Profesor de Literatura Argentina"></div>
                             <div class="turno">
                                 <input type="text" id="turno1_1" list="itemTurnos" maxlength="2" data-uppercase
-                                    pattern="^(M|T|N|C|R|V)$" title="Ingresá un turno válido abreviado"
-                                    placeholder="M">
+                                    pattern="^(M|T|N|C|R|V)$" title="Ingresá un turno válido abreviado" placeholder="M">
                                 <datalist id="itemTurnos">
                                     <option value="M" label="Mañana">
                                     <option value="T" label="Tarde">
@@ -456,8 +448,8 @@
                             <div class="sitRev"> <input type="text" id="revista1_1" maxlength="4" data-uppercase
                                     inputmode="text" placeholder="T">
                             </div>
-                            <div class="antiSitRev"> <input type="text" id="ant1_1" title="Solo ingresá los números" inputmode="numeric"
-                                    placeholder="AA, MM"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant1_1" title="Solo ingresá los números"
+                                    inputmode="numeric" placeholder="AA, MM"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo1_1" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'" placeholder="SÍ">
@@ -468,8 +460,8 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia1_1" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado" placeholder="VI">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado"
+                                    placeholder="VI">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -507,7 +499,8 @@
                             <div class="horasCat"> <input type="text" id="horas2_1" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista2_1" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant2_1" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant2_1" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo2_1" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -518,8 +511,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia2_1" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -557,7 +549,8 @@
                             <div class="horasCat"> <input type="text" id="horas3_1" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista3_1" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant3_1" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant3_1" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo3_1" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -568,8 +561,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia3_1" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -607,7 +599,8 @@
                             <div class="horasCat"> <input type="text" id="horas4_1" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista4_1" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant4_1" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant4_1" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo4_1" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -618,8 +611,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia4_1" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -657,7 +649,8 @@
                             <div class="horasCat"> <input type="text" id="horas5_1" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista5_1" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant5_1" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant5_1" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo5_1" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -668,8 +661,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia5_1" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -707,7 +699,8 @@
                             <div class="horasCat"> <input type="text" id="horas6_1" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista6_1" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant6_1" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant6_1" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo6_1" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -718,8 +711,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia6_1" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -757,7 +749,8 @@
                             <div class="horasCat"> <input type="text" id="horas7_1" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista7_1" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant7_1" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant7_1" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo7_1" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -768,8 +761,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia7_1" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -824,7 +816,8 @@
                             <div class="horasCat"> <input type="text" id="horas1_2" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista1_2" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant1_2" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant1_2" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo1_2" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -835,8 +828,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia1_2" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -874,7 +866,8 @@
                             <div class="horasCat"> <input type="text" id="horas2_2" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista2_2" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant2_2" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant2_2" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo2_2" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -885,8 +878,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia2_2" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -924,7 +916,8 @@
                             <div class="horasCat"> <input type="text" id="horas3_2" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista3_2" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant3_2" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant3_2" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo3_2" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -935,8 +928,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia3_2" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -974,7 +966,8 @@
                             <div class="horasCat"> <input type="text" id="horas4_2" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista4_2" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant4_2" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant4_2" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo4_2" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -985,8 +978,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia4_2" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1024,7 +1016,8 @@
                             <div class="horasCat"> <input type="text" id="horas5_2" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista5_2" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant5_2" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant5_2" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo5_2" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1035,8 +1028,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia5_2" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1074,7 +1066,8 @@
                             <div class="horasCat"> <input type="text" id="horas6_2" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista6_2" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant6_2" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant6_2" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo6_2" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1085,8 +1078,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia6_2" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1124,7 +1116,8 @@
                             <div class="horasCat"> <input type="text" id="horas7_2" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista7_2" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant7_2" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant7_2" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo7_2" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1135,8 +1128,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia7_2" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1236,7 +1228,8 @@
                             <div class="horasCat"> <input type="text" id="horas1_3" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista1_3" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant1_3" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant1_3" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo1_3" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1247,8 +1240,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia1_3" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1286,7 +1278,8 @@
                             <div class="horasCat"> <input type="text" id="horas2_3" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista2_3" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant2_3" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant2_3" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo2_3" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1297,8 +1290,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia2_3" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1336,7 +1328,8 @@
                             <div class="horasCat"> <input type="text" id="horas3_3" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista3_3" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant3_3" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant3_3" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo3_3" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1347,8 +1340,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia3_3" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1386,7 +1378,8 @@
                             <div class="horasCat"> <input type="text" id="horas4_3" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista4_3" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant4_3" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant4_3" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo4_3" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1397,8 +1390,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia4_3" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1436,7 +1428,8 @@
                             <div class="horasCat"> <input type="text" id="horas5_3" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista5_3" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant5_3" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant5_3" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo5_3" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1447,8 +1440,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia5_3" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1486,7 +1478,8 @@
                             <div class="horasCat"> <input type="text" id="horas6_3" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista6_3" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant6_3" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant6_3" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo6_3" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1497,8 +1490,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia6_3" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1536,7 +1528,8 @@
                             <div class="horasCat"> <input type="text" id="horas7_3" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista7_3" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant7_3" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant7_3" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo7_3" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1547,8 +1540,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia7_3" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1603,7 +1595,8 @@
                             <div class="horasCat"> <input type="text" id="horas1_4" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista1_4" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant1_4" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant1_4" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo1_4" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1614,8 +1607,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia1_4" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1653,7 +1645,8 @@
                             <div class="horasCat"> <input type="text" id="horas2_4" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista2_4" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant2_4" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant2_4" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo2_4" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1664,8 +1657,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia2_4" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1703,7 +1695,8 @@
                             <div class="horasCat"> <input type="text" id="horas3_4" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista3_4" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant3_4" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant3_4" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo3_4" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1714,8 +1707,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia3_4" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1753,7 +1745,8 @@
                             <div class="horasCat"> <input type="text" id="horas4_4" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista4_4" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant4_4" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant4_4" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo4_4" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1764,8 +1757,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia4_4" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1803,7 +1795,8 @@
                             <div class="horasCat"> <input type="text" id="horas5_4" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista5_4" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant5_4" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant5_4" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo5_4" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1814,8 +1807,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia5_4" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1853,7 +1845,8 @@
                             <div class="horasCat"> <input type="text" id="horas6_4" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista6_4" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant6_4" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant6_4" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo6_4" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1864,8 +1857,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia6_4" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1903,7 +1895,8 @@
                             <div class="horasCat"> <input type="text" id="horas7_4" inputmode="text"></div>
                             <div class="sitRev"> <input type="text" id="revista7_4" maxlength="4" data-uppercase
                                     inputmode="text"></div>
-                            <div class="antiSitRev"> <input type="text" id="ant7_4" title="Solo ingresá los números" inputmode="numeric"></div>
+                            <div class="antiSitRev"> <input type="text" id="ant7_4" title="Solo ingresá los números"
+                                    inputmode="numeric"></div>
                             <div class="frenteAlum">
                                 <input type="text" id="alumnoSiNo7_4" list="itemFrenAlum" maxlength="2" data-uppercase
                                     pattern="^(SÍ|NO)$" title="Ingresá 'SÍ' o 'NO'">
@@ -1914,8 +1907,7 @@
                             </div>
                             <div class="dias">
                                 <input type="text" id="dia7_4" list="itemDias" maxlength="2" data-uppercase
-                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$"
-                                    title="Ingresá un día válido abreviado">
+                                    pattern="^(LU|MA|MI|JU|VI|SÁ|SE)$" title="Ingresá un día válido abreviado">
                                 <datalist id="itemDias">
                                     <option value="LU" label="Lunes">
                                     <option value="MA" label="Martes">
@@ -1954,28 +1946,16 @@
                                     indica la normativa vigente, sobre los intervinientes en el trámite.</p>
                             </div>
                             <div class="fechaUna"> <label for="fechaSolicitante">FECHA:</label>
-                                <input type="text" 
-                                id="fechaSolicitante" 
-                                class="fecha-input" 
-                                placeholder="dd/mm/aaaa"
-                                maxlength="10".
-                                title="Solo ingresá los números">
+                                <input type="text" id="fechaSolicitante" class="fecha-input" placeholder="dd/mm/aaaa"
+                                     title="Solo ingresá los números">
                             </div>
                             <div class="fechaDos"> <label for="fechaDirector">FECHA:</label>
-                                <input type="text" 
-                                id="fechaDirector" 
-                                class="fecha-input" 
-                                placeholder="dd/mm/aaaa"
-                                maxlength="10"
-                                title="Solo ingresá los números">
+                                <input type="text" id="fechaDirector" class="fecha-input" placeholder="dd/mm/aaaa"
+                                    title="Solo ingresá los números">
                             </div>
                             <div class="fechaTres"> <label for="fechaResponsable">FECHA:</label>
-                                <input type="text" 
-                                id="fechaResponsable" 
-                                class="fecha-input" 
-                                placeholder="dd/mm/aaaa"
-                                maxlength="10"
-                                title="Solo ingresá los números">
+                                <input type="text" id="fechaResponsable" class="fecha-input" placeholder="dd/mm/aaaa"
+                                    title="Solo ingresá los números">
                             </div>
                             <div class="textAclaUna">
                                 <p>FIRMA Y ACLARACION DEL SOLICITANTE</p>
@@ -2050,14 +2030,21 @@
                     navegador.</li>
                 <li><i class="fa-solid fa-circle-check"></i> El diseño del formulario es bastante complicado ("yo no lo
                     hices" como diría Apu), pero respeté, lo más que pude, su
-                    versión en papel. Sí, desde el punto de vista de la "usabilidad" también es malo y feo y engorroso.</li>
-                <li><i class="fa-solid fa-circle-check"></i> La página no es compatible con los teléfonos. Estaría trabajando en hacerlo, pero llevará algo de tiempo (¿A dónde va el tiempo? como diría Edna). Más allá de esto, muchos datos se pueden cargar desde el
+                    versión en papel. Sí, desde el punto de vista de la "usabilidad" también es malo y feo y engorroso.
+                </li>
+                <li><i class="fa-solid fa-circle-check"></i> La página no es compatible con los teléfonos. Estaría
+                    trabajando en hacerlo, pero llevará algo de tiempo (¿A dónde va el tiempo? como diría Edna). Más
+                    allá de esto, muchos datos se pueden cargar desde el
                     teléfono,
-                    estaría medianamente optimizado para eso. Por ejemplo, para cargar el horario solo deben escribir los números y
+                    estaría medianamente optimizado para eso. Por ejemplo, para cargar el horario solo deben escribir
+                    los números y
                     la página
-                    agrega los dos puntos y el guion medio, lo mismo con el porcentaje, tampoco es necesario escribir con mayúsculas o minúsculas, la página formatea todo, entre otras cosas. ¡Exploren!
-                    En las versiones móviles de Chrome y Opera, los días y los turnos, por ejemplo, les van a aparecer opciones rápidas en el teclado del
-                    teléfono, con lo que alcanza con cliquear y chau te fuiste. Les dejo un video sobre cómo funciona en un teléfono en Chrome móvil.</li>
+                    agrega los dos puntos y el guion medio, lo mismo con el porcentaje, tampoco es necesario escribir
+                    con mayúsculas o minúsculas, la página formatea todo, entre otras cosas. ¡Exploren!
+                    En las versiones móviles de Chrome y Opera, los días y los turnos, por ejemplo, les van a aparecer
+                    opciones rápidas en el teclado del
+                    teléfono, con lo que alcanza con cliquear y chau te fuiste. Les dejo un video sobre cómo funciona en
+                    un teléfono en Chrome móvil.</li>
                 <li><i class="fa-solid fa-circle-check"></i> Por lo anterior, funciona mejor en una PC y un
                     <strong>navegador actualizado</strong>, nada de Win
                     XP o Internet Explorer como se usan en el CGE.
@@ -2098,7 +2085,7 @@
             </a>
         </p>
     </footer>
-    
+
 
 </body>
 
