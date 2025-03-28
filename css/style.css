@@ -348,47 +348,16 @@ p {
   /* Por defecto oculto */ }
 
 /* Estilos específicos para impresión */
-@media print {
-  body * {
-    visibility: hidden; }
-  @page {
-    size: A4;
-    /* Tamaño de la página */
-    margin: 10mm;
-    /* Márgenes para toda la página */ }
-  form, legend, input, textarea, section {
-    background: transparent !important;
-    border-color: black !important;
-    /* Asegurar que las líneas de los bordes sean visibles */ }
-  #form,
-  #form * {
-    visibility: visible; }
-  #form {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 210mm;
-    height: auto;
-    border: none;
-    margin-top: 0.5rem; }
-  #pagina1 {
-    page-break-after: always;
-    /* Salto de página después de la primera sección */ }
-  #pagina2 {
-    page-break-after: auto;
-    /* Deja que la segunda sección continúe hasta el final */ }
-  input::placeholder {
-    color: transparent; }
-  textarea::placeholder {
-    color: transparent; }
-  input[type="date"]::-webkit-datetime-edit-month-field,
-  input[type="date"]::-webkit-datetime-edit-day-field,
-  input[type="date"]::-webkit-datetime-edit-year-field {
-    color: inherit;
-    /* Restaurar el color del texto para el usuario */ } }
+
+
+
+
+
 
 body {
   font-family: Arial, sans-serif; }
+
+
 
 form {
   width: 794px;
@@ -396,7 +365,9 @@ form {
   padding: 1rem;
   margin-top: 4rem;
   border: 1px solid black;
-  background-image: linear-gradient(to right, #9a9a9a, #cdcdcd); }
+  background-image: linear-gradient(-45deg, #d3d3d3 25%, transparent 25%, transparent 50%, #d3d3d3 50%, #d3d3d3 75%, transparent 75%, transparent);
+  background-size: 10px 10px;
+  /* Ajusta el tamaño de las rayas */ }
 
 /*PRIMERA SECCIÓN*/
 /*Se crean dos columnas para la primera sección*/
@@ -1241,18 +1212,9 @@ footer a:hover {
   display: none;
   /* Ocultar por defecto */ }
 
-/* Estilo para inputs de fechas vacíos (todos los navegadores) */
-.fecha-input {
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: x-small;
-  font-style: oblique;
-  font-weight: bold;
-  transition: all 0.15s ease;
-  box-sizing: content-box;
-}
+
+
+
 
 @media only screen and (max-width: 768px) {
   .navbar {
@@ -1288,3 +1250,43 @@ footer a:hover {
     font-size: x-small;
     margin: 3px 3px 3px 3px;
     padding: 3px 3px; } }
+
+    @media print {
+      body * {
+        visibility: hidden; }
+      @page {
+        size: A4;
+        /* Tamaño de la página */
+        margin: 10mm;
+        /* Márgenes para toda la página */ }
+      form, legend, input, textarea, section {
+        background: transparent !important;
+        border-color: black !important;
+        /* Asegurar que las líneas de los bordes sean visibles */ }
+      #form,
+      #form * {
+        visibility: visible; }
+      #form {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 210mm;
+        height: auto;
+        border: none;
+        margin-top: 0.5rem; }
+      #pagina1 {
+        page-break-after: always;
+        /* Salto de página después de la primera sección */ }
+      #pagina2 {
+        page-break-after: auto;
+        /* Deja que la segunda sección continúe hasta el final */ }
+      input::placeholder {
+        color: transparent; }
+      textarea::placeholder {
+        color: transparent; }
+      input[type="date"]::-webkit-datetime-edit-month-field,
+      input[type="date"]::-webkit-datetime-edit-day-field,
+      input[type="date"]::-webkit-datetime-edit-year-field {
+        color: inherit;
+        /* Restaurar el color del texto para el usuario */ } }
+    
